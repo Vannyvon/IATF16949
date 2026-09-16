@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IATF 16949: The International Automotive Quality Standard - Executive Overview</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #4a607a;
+            --accent-color: #d9534f;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #e2e8f0;
+            --sidebar-width: 300px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        #sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            border-right: 1px solid var(--border-color);
+            padding: 20px 10px;
+        }
+
+        #sidebar h2 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        #sidebar ul {
+            list-style: none;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            display: block;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        #sidebar a:hover {
+            background: #edf2f7;
+            color: var(--primary-color);
+        }
+
+        /* Main Content Area */
+        #content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            max-width: 1000px;
+            width: calc(100% - var(--sidebar-width));
+            background: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        header {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .meta-info {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .meta-info a {
+            color: var(--primary-color);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2.section-title {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Styling Requirements Clause text types */
+        .qms-requirement {
+            margin-bottom: 15px;
+            padding: 5px 0;
+        }
+
+        .qms-requirement.supplemental, 
+        .qms-requirement.iatf-spec {
+            font-style: italic;
+        }
+
+        .contact-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .contact-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            #content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Sidebar -->
+    <nav id="sidebar">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#foreword">Foreword</a></li>
+            <li><a href="#users">The Users of This Guide</a></li>
+            <li><a href="#clause-4">4. Context of the Organization</a></li>
+            <li><a href="#clause-5">5. Leadership</a></li>
+            <li><a href="#clause-6">6. Planning</a></li>
+            <li><a href="#clause-7">7. Support</a></li>
+            <li><a href="#clause-8">8. Operation</a></li>
+            <li><a href="#clause-9">9. Performance Evaluation</a></li>
+            <li><a href="#clause-10">10. Improvement</a></li>
+            <li><a href="#customer-specific">Customer-Specific Requirements</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="content">
+        <header>
+            <h1>IATF 16949</h1>
+            <h2>The International Automotive Quality Standard</h2>
+            <p><strong>AN EXECUTIVE OVERVIEW</strong></p>
+            <div class="meta-info">
+                <p><strong>PERRY JOHNSON CONSULTING, INC.</strong></p>
+                <p>200 East Big Beaver Rd. Troy, Michigan 48083 | 1-888-248-0256 or (248) 519-2602</p>
+                <p>Website: <a href="http://www.pjcinc.com" target="_blank">www.pjcinc.com</a> | Email: <a href="mailto:pjc@pjcinc.com">pjc@pjcinc.com</a></p>
+                <p><small>Revised 12/16 | ©Copyright 2016 by PERRY JOHNSON CONSULTING, INC.</small></p>
+            </div>
+        </header>
+
+        <!-- Foreword -->
+        <section id="foreword">
+            <h2 class="section-title">Foreword</h2>
+            <p>IATF 16949:2016 represents the next chapter in a storied history of certification for companies that supply to the automotive market. In the United States it began with the harmonization of the "Big 3" requirements into QS-9000. QS-9000 was an important step, but the industry wanted more. Driven by the need for a harmonized quality management system standard for international automotive suppliers, the International Automotive Task Force (IATF) in 1999 produced ISO/TS 16949, which included requirements from various markets including Germany (VDA 6.1), France (EAQF) and Italy (AVSQ). In 2002, ISO/TS 16949 was revised to align with ISO 9001:2000, and later revised in 2009 to align with ISO 9001:2008.</p>
+            <p>Now, as 2016 draws to a close the standard takes another ambitious step forward as it has been rewritten to align with the new, Annex SL based, ISO 9001:2015 quality management system standard. This change alone adds a whole host of new and interesting requirements including risk based thinking, organizational knowledge, and the determination of interested parties.</p>
+            <p>But this latest update doesn't just represent a reshuffling of ISO/TS 16949:2009 into a new framework. The IATF put years of work into gathering feedback from numerous shareholders to ensure that this new standard addresses all of the key concerns that have been expressed over the many years that ISO/TS 16949 was the standard of note. This included feedback from OEMS, Certification Bodies, Witness Auditors, and Oversight Offices. It also included a targeted effort to incorporate the various sanctioned interpretations and key FAQs that were accumulated over the years.</p>
+            <p>All of these changes center on one key directive from the automotive industry: <strong>prevent problems before they occur!</strong></p>
+            <p>As before, any organization that seeks certification to IATF 16949 must meet not only the requirements found in the standard, but also the customer specific requirements raised by their customers (and in many cases their customer's customers). ISO 9001:2015 is not included in the actual text of IATF 16949, but its requirements are referred to throughout the standard and are considered fully applicable.</p>
+            <p>This guide was created to aid those suppliers who are about to embark upon the IATF 16949 journey. It will help smooth out the bumps as it explains the general requirements of IATF 16949 step-by-step. Since registering to this automotive standard is a lengthy and detailed process, it is strongly suggested that firms seeking registration retain the services of a reputable consulting firm.</p>
+            <p><em>PERRY JOHNSON CONSULTING, INC.<br>Southfield, Michigan<br>December 2016</em></p>
+        </section>
+
+        <!-- Users of this guide -->
+        <section id="users">
+            <h2 class="section-title">The Users of This Guide</h2>
+            <p>This guide will be useful to all suppliers who service the automotive industry and firms that meet any of the following criteria:</p>
+            <ul>
+                <li>International automotive suppliers.</li>
+                <li>Firms that supply production parts to automobile manufacturers.</li>
+                <li>Companies that supply service parts to automobile manufacturers.</li>
+                <li>Organizations that supply production materials to automobile manufacturers.</li>
+                <li>Firms planning to improve their quality assurance and management programs.</li>
+                <li>Companies that supply heat treating, painting, plating or other finishing services to automobile manufacturers.</li>
+                <li>Subcontractors that design products for automobile manufacturers and/or suppliers that service automobile manufacturers.</li>
+                <li>Firms wishing to do future business with automobile manufacturers.</li>
+                <li>Suppliers seeking a competitive advantage in the marketplace.</li>
+                <li>Companies desiring to make customer satisfaction a top priority.</li>
+                <li>Suppliers seeking to meet the customer IATF 16949 registration mandates.</li>
+                <li>Any other firms interested in becoming registered to IATF 16949.</li>
+            </ul>
+        </section>
+
+        <!-- Requirements Legend -->
+        <div style="background-color: #eef6fc; border-left: 4px solid var(--primary-color); padding: 15px; margin-bottom: 25px;">
+            <p style="margin:0;"><strong>Note on Reading Requirements:</strong></p>
+            <p style="margin:0;">Plain text represents <strong>ISO 9001:2015-based requirements</strong>.</p>
+            <p style="margin:0; font-style: italic;">Italicized text represents <strong>IATF 16949 supplemental requirements</strong>.</p>
+        </div>
+
+        <!-- Clause 4 -->
+        <section id="clause-4">
+            <h2 class="section-title">4. Context of the Organization</h2>
+            <div class="qms-requirement">
+                <p><strong>4.1 Understanding the organization and its context</strong> requires the organization to determine external and internal issues that are relevant to its purpose and its strategic direction and that affect its ability to achieve the intended result(s) of its quality management system. It also requires the organization to monitor and review information about these external and internal issues. Issues are understood to include positive and negative factors or conditions for consideration. Understanding of external context can be facilitated by considering issues arising from legal, technological, competitive, market, cultural, social and economic environments, whether international, national, regional or local. Understanding of internal context can be facilitated by considering issues related to values, culture, knowledge and performance of the organization.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>4.2 Understanding the needs and expectations of interested parties</strong> requires an organization to determine the interested parties and requirements therein that are relevant to the quality management system. The organization is also required to monitor and review information about these interested parties and their relevant requirements.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>4.3 Determining the scope of the quality management system</strong> requires the organization to determine the boundaries and applicability of the quality management system to establish its scope. When doing so, the organization should consider the external and internal issues referred to in 4.1, the requirements of relevant interested parties referred to in 4.2, and what their products and services are. Organizations are required to apply all the requirements of ISO 9001:2015 if they are applicable within the determined scope of the quality management system. The scope of the organization's quality management system has to be available and maintained as documented information. The scope must stipulate the types of products and services covered, and provide justification for any requirement of ISO 9001:2015 that the organization has determined as not applicable to the scope of its quality management system. Conformity to ISO 9001:2015 may only be claimed if the requirements determined as not being applicable do not affect the organization's ability or responsibility to ensure the conformity of its products and services and the enhancement of customer satisfaction.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>4.3.1 Determining the scope of the quality management system-supplemental</strong> requires organizations to ensure that supporting function, whether on-site or remote (such as design centers, corporate headquarters, and distribution centers) are included in the scope of the Quality Management System (QMS.) The only permitted exclusion for the Automotive QMS Standard relates to the product design and development requirements within ISO 9001, Section 8.3. The exclusion must be justified and maintained as documented information (see ISO 9001, Section 7.5.) Permitted exclusions do not include manufacturing process design.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>4.3.2 Customer Specific Requirements</strong> requires that customer specific requirements be evaluated and included in the scope of the organization's quality management system.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>4.4 Quality management system and its processes</strong> establishes two different sets of requirements:</p>
+                <p><strong>4.4.1</strong> Requires the organization to establish, implement, maintain and continually improve a quality management system, including the processes needed and their interactions, in accordance with the requirements of ISO 9001:2015. It requires the organization to determine the processes needed for the quality management system and their application throughout the organization. It requires the organization to determine the inputs required and the outputs expected from these processes, determine the sequence and interaction of these processes, to determine and apply the criteria and methods (including monitoring, measurements and related performance indicators) needed to ensure the effective operation and control of these processes, to determine the resources needed for these processes and ensure their availability, to assign the responsibilities and authorities for these processes, to address the risks and opportunities as determined in accordance with the requirements of 6.1, to evaluate these processes and implement any changes needed to ensure that these processes achieve their intended results, and to improve the processes and the quality management system.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>4.4.1.1 Conformance of products and processes</strong> requires the organization to ensure conformance of all products and processes, including service parts and those that are outsourced, to all applicable customer, statutory, and regulatory requirements (see Section 8.4.2.2.)</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>4.4.1.2 Product Safety</strong> requires the organization to have documented processes for the management of product-safety related products and manufacturing processes, which must include but not be limited to the following, (where applicable) identification by the organization of statutory and regulatory product-safety requirements, customer notification of requirements, special approvals for design FMEA, identification of product-safety related characteristics, identification and controls of safety-related characterizes of product and at the point of manufacture, special approval of control plans and process FMEAs, reaction plans (see Section 9.1.1.1), defined responsibilities, definition of escalation process and flow of information, including top management, customer notification, and training identified by the organization or customer for personnel involved in product-safety related products and associated manufacturing processes, changes of product or process shall be approved prior to implementation, including evaluation of potential effects on product safety from process and product changes (see ISO 9001, Section 8.3.6), transfer of requirements with regard to product safety throughout the supply chain, including customer-designated sources (see Section 8.4.3.1), product traceability by manufactured lot (at a minimum) throughout the supply chain (See Section 8.5.2.1); and lessons learned for new product information.</p>
+                <p>A supplemental note defines special approval as an additional approval by the function (typically the customer) that is responsible to approve such documents with safety related content.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>4.4.2</strong> Requires the organization to maintain documented information to support the operation of its processes, and to retain documented information to have confidence that the processes are being carried out as planned.</p>
+            </div>
+        </section>
+
+        <!-- Clause 5 -->
+        <section id="clause-5">
+            <h2 class="section-title">5. Leadership</h2>
+            <div class="qms-requirement">
+                <p><strong>5.1 Leadership and Commitment</strong></p>
+                <p><strong>5.1.1 General</strong> requires top management to demonstrate leadership and commitment with respect to the quality management system by taking accountability for the effectiveness of the quality management system, ensuring that the quality policy and quality objectives are established for the quality management system and are compatible with the context and strategic direction of the organization, ensuring the integration of the quality management system requirements into the organization's business processes, promoting the use of the process approach and risk-based thinking, ensuring that the resources needed for the quality management system are available, communicating the importance of effective quality management and of conforming to the quality management system requirements, ensuring that the quality management system achieves its intended results, engaging, directing and supporting persons to contribute to the effectiveness of the quality management system, promoting improvement, and supporting other relevant management roles to demonstrate their leadership as it applies to their areas of responsibility.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>5.1.1.1 Corporate responsibility</strong> requires the organization to define and implement corporate responsibility policies, including at a minimum an anti-bribery policy, an employee code of conduct, and an ethics escalation policy ("whistle-blowing policy").</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>5.1.1.2 Process effectiveness and efficiency</strong> requires top management to review the product realization processes and support processes to evaluate and improve their effectiveness and efficiency. The results of the process review activities must be included as input to the management review.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>5.1.1.3 Process owners</strong> requires top management to identify process owners who are responsible for managing the organization's processes and related outputs. Process owners must understand their roles and be competent to perform these roles. (See ISO 9001, Section 7.2.)</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>5.1.2 Customer focus</strong> requires top management to demonstrate leadership and commitment with respect to customer focus by ensuring that customer and applicable statutory and regulatory requirements are determined, understood and consistently met, the risks and opportunities that can affect conformity of products and services and the ability to enhance customer satisfaction are determined and addressed, and that the focus on enhancing customer satisfaction is maintained.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>5.2 Policy</strong></p>
+                <p><strong>5.2.1 Establishing the quality policy</strong> requires top management to establish, implement and maintain a quality policy that is appropriate to the purpose and context of the organization and supports its strategic direction, provides a framework for setting quality objectives, includes a commitment to satisfy applicable requirements, and includes a commitment to continual improvement of the quality management system.</p>
+                <p><strong>5.2.2 Communicating the quality policy</strong> requires the quality policy to be available and be maintained as documented information, be communicated, understood and applied within the organization, and be available to relevant interested parties, as appropriate.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>5.3 Organizational roles, responsibilities and authorities</strong> requires top management to ensure that the responsibilities and authorities for relevant roles are assigned, communicated and understood within the organization. It further requires top management to assign the responsibility and authority for ensuring that the quality management system conforms to the requirements of ISO 9001:2015, ensuring that the processes are delivering their intended outputs, reporting on the performance of the quality management system and on opportunities for improvement (see 10.1), in particular to top management, ensuring the promotion of customer focus throughout the organization, and ensuring that the integrity of the quality management system is maintained when changes to the quality management system are planned and implemented.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>5.3.1 Organizational roles, responsibilities, and authorities-supplemental</strong> requires top management to assign personnel with the responsibility and authority to ensure that customer requirements are met. These assignments must be documented. This includes but is not limited to the selection of special characteristics, setting quality objective and related training, corrective and preventive action, product design and development, capacity analysis, logistics information, customer scorecards, and customer portals.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>5.3.2 Responsibility and authority for product requirements and corrective actions</strong> requires top management to ensure that personnel responsible for conformity to product requirements have the authority to stop shipment and stop production to correct quality problems. It is noted that due to the process design in some industries, it might not always be possible to stop production immediately. In this case, the affected batch must be contained and shipment to the customer prevented. This requirement goes on to require that personnel with authority and responsibility for corrective action be promptly informed of products or processes that do not conform to requirements to ensure that nonconforming product is not shipped to the customer and that all potential nonconforming product is identified and contained. Finally it requires that production operations across all shifts be staffed with personnel in charge of, or delegated responsibility for, ensuring conformity to product requirements.</p>
+            </div>
+        </section>
+
+        <!-- Clause 6 -->
+        <section id="clause-6">
+            <h2 class="section-title">6. Planning</h2>
+            <div class="qms-requirement">
+                <p><strong>6.1 Actions to Address Risks and Opportunities</strong></p>
+                <p><strong>6.1.1</strong> Requires the organization to consider the issues referred to in 4.1 and the requirements referred to in 4.2 and then to determine the risks and opportunities that need to be addressed to give assurance that the quality management system can achieve its intended result(s), to enhance desirable effects, to prevent, or reduce, undesired effects, and to achieve improvement.</p>
+                <p><strong>6.1.2</strong> Requires the organization to plan actions to address these risks and opportunities, to determine how to integrate and implement the actions into its quality management system processes and to evaluate the effectiveness of these actions. Actions taken to address risks and opportunities must be proportionate to the potential impact on the conformity of products and services.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>6.1.2.1 Risk analysis</strong> requires the organization to include in its risk analysis, at a minimum, lessons learned from product recalls, product audits, field returns and repairs, complaints, scrap, and rework. It also requires the organization to retain documented information as evidence of the results of risk analysis.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>6.1.2.2 Preventive action</strong> requires the organization to determine and implement actions to eliminate the causes of potential nonconformities in order to prevent their occurrence. It further requires preventive actions be appropriate to the severity of the potential issues. It goes on to mandate that the organization establish a process to lessen the impact of negative effectives of risk including determining potential nonconformities and their causes, evaluating the need for action to prevent occurrence of nonconformities, determining and implementing action needed, documented information of action taken, reviewing the effectiveness of the preventive action taken, and utilizing lessons learned to prevent recurrence in similar processes (See ISO 9001, Section 7.1.6.)</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>6.1.2.3 Contingency plans</strong> requires the organization to identify and evaluate internal and external risks to all manufacturing processes and infrastructure equipment essential to maintain production output and to ensure that customer requirements are met, define contingency plans according to risk and impact to the customer, prepare contingency plans for continuity of supply in the event of any of the following: key equipment failures (also see Section 8.5.6.1.1), interruption from externally provided products, process, and services, recurring natural disasters, fire, utility interruptions, labor shortages, or infrastructure disruptions.</p>
+                <p>It further requires the organization to include, as a supplement to the contingency plans, a notification process to the customer and other interested parties for the extent and duration of any situation impacting customer operations, to periodically test the contingency plans for effectiveness (e.g. simulations as appropriate), to conduct contingency plan reviews (at a minimum annually) using a multi-disciplinary team including top management, and update as required, and to document the contingency plans and retain documented information describing any revision(s) including the person(s) who authorized the change(s.)</p>
+                <p>This requirement also mandates that the contingency plans must include provisions to validate that the manufactured product continues to meet customer specifications after the re-start of production following an emergency in which production was stopped and if the regular shutdown processes were not followed.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>6.2 Quality Objectives and Planning to Achieve Them</strong></p>
+                <p><strong>6.2.1</strong> Requires the organization to establish quality objectives at relevant functions, levels and processes needed for the quality management system. It further requires that quality objectives be consistent with the quality policy, be measurable, take into account applicable requirements, be relevant to conformity of products and services and to enhancement of customer satisfaction, be monitored, be communicated, and be updated as appropriate. Lastly, it requires the organization to maintain documented information on the quality objectives.</p>
+                <p><strong>6.2.2</strong> Requires the organization (with regards to Quality Objectives) to determine what will be done, what resources will be required, who will be responsible, when it will be completed, and how the results will be evaluated.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>6.2.2.1 Quality objectives and planning to achieve them - supplemental</strong> requires top management to ensure that quality objectives to meet customer requirements are defined, established, and maintained for relevant functions, processes, and levels throughout the organization. It further requires that the results of the organization's review regarding interested parties and their relevant requirements be considered when the organization establishes its annual (at minimum) quality objectives and related performance targets (internal and external.)</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>6.3 Planning of changes</strong> requires (when an organization determines that there is a need for changes to the quality management system,) that those changes be carried out in a planned manner (per 4.4). Furthermore, it requires the origination to consider the purpose of the changes and their potential consequences, the integrity of the quality management system, the availability of resources, and the allocation or reallocation of responsibilities and authorities.</p>
+            </div>
+        </section>
+
+        <!-- Clause 7 -->
+        <section id="clause-7">
+            <h2 class="section-title">7. Support</h2>
+            <div class="qms-requirement">
+                <p><strong>7.1 Resources</strong></p>
+                <p><strong>7.1.1 General</strong> requires the organization to determine and provide the resources needed for the establishment, implementation, maintenance and continual improvement of the quality management system. It further requires the organization to consider the capabilities of, and constraints on, existing internal resources, and what needs to be obtained from external providers.</p>
+                <p><strong>7.1.2 People</strong> requires the organization to determine and provide the persons necessary for the effective implementation of its quality management system and for the operation and control of its processes.</p>
+                <p><strong>7.1.3 Infrastructure</strong> requires the organization to determine, provide and maintain the infrastructure necessary for the operation of its processes and to achieve conformity of products and services. Infrastructure is understood to include buildings and associated utilities, equipment, including hardware and software, transportation resources, and information and communication technology.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.1.3.1 Plant, facility, and equipment planning</strong> requires the organization to use a multidisciplinary approach including risk identification and risk mitigation methods for developing and improving plant, facility, and equipment plans. In designing plant layouts, the organization must optimize material flow, material handling, and value added use of floor space including control of nonconforming product; and must also facilitate synchronous material flow, as applicable. The requirement goes on to stipulate that methods be developed and implemented to evaluate manufacturing feasibility for new product or new operations. Manufacturing feasibility assessment must include capacity planning. These methods must also be applicable for evaluating proposed changes to existing operations. This requirement also stipulates that the organization maintain process effectiveness, including periodic reevaluation relative to risk, to incorporate any changes made during process approval, control plan maintenance (See Section 8.5.1.1), and verification of job set-ups (see Section 8.5.1.3.) Finally, this requirements mandates that assessments of manufacturing feasibility and evaluation of capacity planning be used as inputs to management reviews (see ISO 9001, Section 9.1.3.) Two notes are also provided indicating that these requirements should include the application of lean manufacturing principles, and should apply to onsite supplier activities, as applicable.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.1.4 Environment for the operation of processes</strong> requires the organization to determine, provide and maintain the environment necessary for the operation of its processes and to achieve conformity of products and services. Environment is understood to include a combination of human and physical factors, such as social (e.g. non-discriminatory, calm, non-confrontational), psychological (e.g. stress-reducing, burnout prevention, emotionally protective), and physical (e.g. temperature, heat, humidity, light, airflow, hygiene, noise). These factors can differ substantially depending on the products and services provided.</p>
+                <p><em>IATF 16949 adds a note indicating that where third-party certification to ISO 45001 (or equivalent) is recognized, it may be used to demonstrate the organization's conformity to personnel safety aspects of this requirement.</em></p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.1.4.1 Environment for the operation of processes - supplemental</strong> requires the organization to maintain its premises in a state of order, cleanliness, and repair consistent with the product and manufacturing process needs.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.1.5 Monitoring and measuring resources</strong></p>
+                <p><strong>7.1.5.1 General</strong> requires the organization to determine and provide the resources needed to ensure valid and reliable results when monitoring or measuring is used to verify the conformity of products and services to requirements. It further requires the organization to ensure that the resources provided are suitable for the specific type of monitoring and measurement activities being undertaken, and are maintained to ensure their continuing fitness for their purpose. Finally, it requires the organization to retain appropriate documented information as evidence of fitness for purpose of the monitoring and measurement resources.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.1.5.1.1 Measurement systems analysis</strong> requires statistical studies be conducted to analyze the variation present in the results of each type of inspection, measurement, and test equipment system identified in the control plan. The analytical methods and acceptance criteria used must conform to those in reference manuals on measurements systems analysis. It allows for other analytical methods and acceptance criteria to be used if approved by the customer, but stipulates that records of customer acceptance of alternative methods be retained along with results from alternative measurement systems analysis (see Section 9.1.1.1.) A note is provided indicating that prioritization of MSA studies should focus on critical or special product or process characteristics.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.1.5.2 Measurement traceability</strong> requires that when measurement traceability is a requirement, or is considered by the organization to be an essential part of providing confidence in the validity of measurement results, measuring equipment be calibrated or verified, or both, at specified intervals, or prior to use, against measurement standards traceable to international or national measurement standards; when no such standards exist, the basis used for calibration or verification to be retained as documented information. It also requires that measuring equipment be identified in order to determine their status, and safeguarded from adjustments, damage or deterioration that would invalidate the calibration status and subsequent measurement results. Finally, it requires the organization to determine if the validity of previous measurement results has been adversely affected when measuring equipment is found to be unfit for its intended purpose, and to take appropriate action as necessary.</p>
+                <p><em>IATF 16949 provides a note indicating that a number or another identifier traceable to the device calibration record meets the intent of the requirements in ISO 9001:2015.</em></p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.1.5.2.1 Calibration/verification records</strong> requires the organization to have a documented process for managing calibration/verification records. Records of the calibration/verification activity for all gages and measuring and test equipment (including employee owned equipment relevant for measuring, customer owned equipment, or on-site supplier owned equipment) needed to provide evidence of conformity to internal requirements, legislative and regulatory requirements, and customer defined requirements must all be retained. This requirement also stipulates that the organization must ensure that calibration/verification activities and records include revisions following engineering changes that impact measurement systems, any out of specification readings as received for calibration/verification, and an assessment of the risk of the intended use of the product caused by the out-of-specification condition.</p>
+                <p>It further requires that when a piece of inspection, measurement, and test equipment is found to be out of calibration or defective during its planned verification or calibration or during its use, documented information on the validity of previous measurement results obtained with this piece of inspection, measurement, and test equipment be retained, including the associated standard's last calibration date and the next due date on the calibration report. It also requires notification to the customer if suspect product or material has been shipped, statements of conformity to specification after calibration/verification, verification that the software version used for product and process control is as specified, records of the calibration and maintenance activities for all gauging (including employee owned equipment, customer owned equipment, or on-site supplier owned equipment); and production related software verification used for product and process control (including software installed on employee owned equipment, customer owned equipment, or onsite supplier owned equipment.)</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.1.5.3 Laboratory requirements</strong> is split into two pieces:</p>
+                <p><strong>7.1.5.3.1 Internal laboratory</strong> requires that an organization's internal laboratory facility have a defined scope that includes its capability to perform the required inspection, test, or calibration services. It further requires the laboratory scope be included in the quality management system documentation. The laboratory must specify and implement, as a minimum, requirements for adequacy of the laboratory technical procedures, competency of the laboratory personnel, testing of the product, capability to perform these services correctly, traceable to the relevant process standard (such as ASTM, EN, etc.) When no national or international standards are available, the organization must define and implement a methodology to verify measurement system capability. Furthermore, the laboratory must specify and implement customer requirements, if any; and review of the related records. A note is provided indicating that third party accreditation to ISO/IEC 17025 (or equivalent) may be used to demonstrate the organization's in-house laboratory's conformity to this requirement.</p>
+                <p><strong>7.1.5.3.2 External laboratory</strong> requires any external/commercial/ independent laboratory facilities used for inspection, test, or calibration services by the organization to have a defined laboratory scope that includes the capability to perform the required inspection, test, or calibration, and either the laboratory must be accredited to ISO/IEC 17025 or a national equivalent and include the relevant inspection, test, or calibration service in the scope of the accreditation (certificate.) Certificate of calibration or test report must include the mark of a national accreditation body; or there must be evidence that the external laboratory is acceptable to the customer. A note is provided indicating that such evidence may be demonstrated by customer assessment, for example, or by customer approved second party assessment that the laboratory meets the intent of ISO/IEC 17025 or national equivalent. The second party assessment may be performed by the organization assessing the laboratory using a customer approved method of assessment. The requirement goes on to state that calibration services may be performed by the equipment manufacturer when a quality laboratory is not available for a given piece of equipment. In such cases, the organization must ensure that the requirements listed in Section 7.1.5.3.1 have been met. Finally, it stipulates that use of calibration services other than by qualified (or customer accepted) laboratory, may be subject to government regulatory confirmation, if required.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.1.6 Organizational knowledge</strong> requires the organization to determine the knowledge necessary for the operation of its processes and to achieve conformity of products and services. It also requires that knowledge be maintained and made available to the extent necessary. When addressing changing needs and trends, the organization must consider its current knowledge and determine how to acquire or access any necessary additional knowledge and required updates.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.2 Competence</strong> requires the organization to determine the necessary competence of person(s) doing work under its control that affects the performance and effectiveness of the quality management system, to ensure that these persons are competent on the basis of appropriate education, training, or experience, to take actions (where applicable) to acquire the necessary competence, to evaluate the effectiveness of the actions taken; and to retain appropriate documented information as evidence of competence.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.2.1 Competence - supplemental</strong> requires the organization to establish and maintain a documented process for identifying training needs including awareness (see Section 7.3.1) and achieving competence for all personnel performing activities affecting conformity to product and process requirements. Personnel performing specific assigned tasks must be qualified, as required, with particular attention to the satisfaction of customer requirements.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.2.2 Competence - on-the-job training</strong> requires the organization to provide on-the-job training (which must include customer requirements training) for personnel in any new or modified responsibilities affecting conformity to quality requirements, internal requirements, regulatory or legislative requirements. This must include contract or agency personnel. The level of detail required for on-the-job training must be commensurate with the level of education the personnel possess and the complexity of the tasks they are required to perform for their daily work. Persons whose work can affect quality must be informed about the consequences of nonconformity to customer requirements.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.2.3 Internal auditor competency</strong> requires the organization to have a documented process to verify that internal auditors are competent, taking into account any customer specific requirements. For additional guidance on auditor competencies, refer to ISO 19011. The organization must maintain a list of qualified internal auditors. This requirement goes on to mandate that quality management system auditors, manufacturing process auditors, and product auditors must all be able to demonstrate the following as minimum competencies. Understanding of the automotive process approach for auditing, including risk-based thinking, Understanding of applicable customer specific requirements, understanding of applicable ISO 9001 and IATF 16949 requirements related to the scope of the audit, understanding of applicable core tool requirements related to the scope of the audit; and understanding how to plan, conduct, report, and close out audit findings. Additionally, it requires that manufacturing process auditors demonstrate technical understanding of the relevant manufacturing processes to be audited, including process risk analysis (such as PFMEA) and control plan. Product auditors must demonstrate competence in understanding product requirements and use of relevant measuring and test equipment to verify product conformity.</p>
+                <p>Where training is provided to achieve competency, documented information must be retained to demonstrate the trainer's competency with the above requirements. Maintenance of and improvement in internal auditor competence must be demonstrated through executing a minimum number of audits per year, as defined by the organization; and maintaining knowledge of relevant requirements based on internal changes (e.g., process technology, product technology) and external changes (e.g., ISO 9001, IATF 16949, core tools, and customer specific requirements.)</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.2.4 Second party auditor competency</strong> requires the organization to demonstrate the competence of the auditors undertaking the second party audits. Second party auditors must meet customer specific requirements for auditor qualification and demonstrate the minimum following core competencies, including understanding of the automotive process approach to auditing, including risk based thinking, applicable customer and organization specific requirements, applicable ISO 9001 and IATF 16949 requirements related to the scope of the audit, applicable manufacturing processes to be audited, including PFMEA and control plan, applicable core tools requirements related to the scope of the audit; and how to plan, conduct, report, and close out audit findings.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.3 Awareness</strong> requires the organization to ensure that persons doing work under the organization's control are aware of the quality policy, relevant quality objectives, their contribution to the effectiveness of the quality management system, including the benefits of improved performance, and the implications of not conforming with the quality management system requirements.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.3.1 Awareness - supplemental</strong> requires the organization to maintain documented information that demonstrates that all employees are aware of their impact on product quality and the importance of their activities in achieving, maintaining, and improving quality, including customer requirements and the risks involved for the customer with nonconforming product.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.3.2 Employee motivation and empowerment</strong> requires the organization to maintain a documented process to motive employees to achieve quality objectives, to make continual improvements, and to create an environment that promotes innovation. The process must include the promotion of quality and technological awareness throughout the whole organization.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.4 Communication</strong> requires the organization to determine the internal and external communications relevant to the quality management system, including on what it will communicate, when to communicate, with whom to communicate, how to communicate, and who communicates.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.5 Documented Information</strong></p>
+                <p><strong>7.5.1 General</strong> requires the organization's quality management system to include documented information required by ISO 9001:2015, documented information, as well as documented information determined by the organization as being necessary for the effectiveness of the quality management system.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.5.1.1 Quality management system documentation</strong> requires the organization's quality management system to be documented and to include a quality manual, which can be a series of documents (electric or hard copy.) The format and structure of the quality manual is at the discretion of the organization and will depend on the organization's size, culture, and complexity. If a series of documents is used, then a list must be retained of the documents that comprise the quality manual for the organization. The quality manual must include, at a minimum, the scope of the quality management system, including details of justification for any exclusions, documented processes established for the quality management system, or reference to them, the organization's processes and their sequence and interactions (inputs and outputs), including type and extent of control of any outsourced processes; and a document (i.e. matrix) indicating where within the organization's quality management system their customer-specific requirements are addressed. A note is given that indicates a matrix of how the requirements of IATF 16949 are addressed by the organization's processes may be used to assist with linkages of the organization's processes and IATF 16949.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>7.5.2 Creating and updating</strong> requires that when creating and updating documented information, the organization ensures appropriate identification and description (e.g. a title, date, author, or reference number), format (e.g. language, software version, graphics) media (e.g. paper, electronic) and review and approval for suitability and adequacy.</p>
+                <p><strong>7.5.3 Control of documented information</strong></p>
+                <p><strong>7.5.3.1</strong> Requires documented information required by the quality management system and by ISO 9001:2015 to be controlled to ensure it is available and suitable for use, where and when it is needed. It further requires that documented information be adequately protected (e.g. from loss of confidentiality, improper use, or loss of integrity).</p>
+                <p><strong>7.5.3.2</strong> Requires the organization (as it pertains to control of documented information) to address the following activities, as applicable. Distribution, access, retrieval and use, storage and preservation, including preservation of legibility, control of changes (e.g. version control), and retention and disposition. It further required that documented information of external origin determined by the organization to be necessary for the planning and operation of the quality management system be identified as appropriate, and be controlled. Finally it requires documented information retained as evidence of conformity be protected from unintended alterations.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.5.3.2.1 Record retention</strong> requires the organization to define, document, and implement a record retention policy. It further requires that control of records must satisfy statutory, regulatory, organizational, and customer requirements. It goes on to require that production part approvals, tooling records (including maintenance and ownership), product and process design records, purchase orders (if applicable), or contracts and amendments be retained for the length of time that the product is active for production and service requirements, plus one calendar year, unless otherwise specified by the customer or regulatory agency. A note is given indicating that production part approval documented information may include approved product, applicable test equipment records, or approved test data.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>7.5.3.2.2 Engineering specifications</strong> requires the organization to have a documented process describing the review, distribution, and implementation of all customer engineering standards/ specifications and related revisions based on customer schedules, as required. It goes on to require that when an engineering standard/specification change results in a product design change, refer to the requirements in ISO 9001, Section 8.3.6. When an engineering standard/specification change results in a product realization change, refer to the requirements in Section 8.5.6.1. The organization shall retain a record of the date on which each change is implemented in production. Implementation shall include updated documents. The requirement goes to state that review should be completed within 10 working days of receipt of notification of engineering standards/specification changes. A note is provided indicating that a change in these standards/specifications may require an updated records of customer production part approval when these specifications are referenced on the design record or if they affect documents of the production part approval process, such as control plan, risk analysis (such as FMEA), etc.</p>
+            </div>
+        </section>
+
+        <!-- Clause 8 -->
+        <section id="clause-8">
+            <h2 class="section-title">8. Operation</h2>
+            <div class="qms-requirement">
+                <p><strong>8.1 Operational planning and control</strong> requires the organization to plan, implement and control the processes (see 4.4) needed to meet the requirements for the provision of products and services, and to implement the actions determined in Clause 6. This is to be accomplished by determining the requirements for the products and services, establishing criteria for the processes and the acceptance of products and services, determining the resources needed to achieve conformity to the product and service requirements, implementing control of the processes in accordance with the criteria, determining, maintaining and retaining documented information to the extent necessary to have confidence that the processes have been carried out as planned and to demonstrate the conformity of products and services to their requirements. Furthermore it requires that the output of this planning be suitable for the organization's operations. The organization must control planned changes and review the consequences of unintended changes, taking action to mitigate any adverse effects, as necessary. Finally, it requires that the organization ensures control of the outsourced processes (per 8.4).</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.1.1 Operational planning and control supplemental</strong> requires that planning for product realization include customer product realization and technical specifications, logistics requirements, manufacturing feasibility, product planning (refer to ISO 9001, Section 8.3.2); and acceptance criteria. It goes on to state that the resources identified in ISO 9001, Section 8.1c refer to the required verification, validation, monitoring, measurement, inspection, and test activities specific to the product and the criteria for product acceptance.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.1.2 Confidentiality</strong> requires the organization shall ensure the confidentiality of customer contracted products and projects under development, including related product information.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.2 Requirements for Products and Services</strong></p>
+                <p><strong>8.2.1 Customer communication</strong> requires that communication with customers includes providing information relating to products and services, handling enquiries, contracts or orders, including changes, obtaining customer feedback relating to products and services, including customer complaints, handling or controlling customer property, and establishing specific requirements for contingency actions, when relevant.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.2.1.1 Customer communication supplemental</strong> requires written or verbal communication be in the language agreed with the customer. The organization must have the ability to communicate necessary information, including data in a customer specified computer language and form (e.g. computer aided design data, electronic data interchange.)</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.2.2 Determining the requirements for products and services</strong> requires that when determining the requirements for the products and services to be offered to customers, the organization must ensure that the requirements for the products and services are defined, including any applicable statutory and regulatory requirements, as well as those considered necessary by the organization. Furthermore, the organization must determine that it can meet the claims for the products and services it offers.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.2.2.1 Determining the requirements for products and services - supplemental</strong> indicates that the items defined in section 8.2.2 must include recycling, environmental impact, and characteristics identified as a result of the organization's knowledge of the product and manufacturing processes. It goes on to state that compliance to ISO 9001, Section 8.2.2a1 must include but should not be limited to the following: all applicable government, safety, and environmental regulations related to acquisition, storage, handling, recycling, elimination, or disposal of material.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.2.3 Review of the Requirements for Products and Services</strong></p>
+                <p><strong>8.2.3.1</strong> Requires the organization to ensure that it has the ability to meet the requirements for products and services to be offered to customers. The organization must conduct a review before committing to supply products and services to a customer. This review must include requirements specified by the customer, including the requirements for delivery and post-delivery activities, requirements not stated by the customer, but necessary for the specified or intended use, when known, requirements specified by the organization, statutory and regulatory requirements applicable to the products and services and contract or order requirements differing from those previously expressed. Furthermore it mandates that the customer's requirements must be confirmed by the organization before acceptance when the customer does not provide a documented statement of their requirements.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.2.3.1.1 Review of the requirements for products and services supplemental</strong> requires the organization to retain documented evidence of a customer authorized waiver for the requirements stated in ISO 9001, Section 8.2.3.1, for a formal review.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.2.3.1.2 Customer designated special characteristics</strong> requires the organization to conform to customer requirements for designation, approval documentation, and control of special characteristics.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.2.3.1.3 Organization manufacturing feasibility</strong> requires the organization to utilize a multidisciplinary approach to conduct an analysis to determine if it is feasible that the organization's manufacturing processes are capable of consistently producing product that meets all of the engineering and capacity requirements specified by the customer. The organization must conduct this feasibility analysis for any manufacturing or product technology new to the organization and for any changed manufacturing process or product design. It goes on to require that the organization should validate through production runs, benchmarking studies, or other appropriate methods, their ability to make product to specification at the required rate.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.2.3.2</strong> Requires the organization to retain (as applicable) documented information on the results of the review, and on any new requirements for the products and services.</p>
+                <p><strong>8.2.4 Changes to requirements for products and services</strong> requires the organization to ensure that relevant documented information is amended, and that relevant persons are made aware of the changed requirements, when the requirements for products and services are changed.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.3 Design and Development of Products and Services</strong></p>
+                <p><strong>8.3.1 General</strong> requires the organization to establish, implement and maintain a design and development process that is appropriate to ensure the subsequent provision of products and services.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.1.1 Design and development of products and services-supplemental</strong> requires that the requirements of ISO 9001, Section 8.3.1 apply to product and manufacturing process design and development and must focus on error prevention rather than detection. It also requires that the organization document the design and development process.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.3.2 Design and development planning</strong> requires the organization (when they determine the stages and controls for design and development) to consider the nature, duration and complexity of the design and development activities, the required process stages, including applicable design and development reviews, the required design and development verification and validation activities, the responsibilities and authorities involved in the design and development process, the internal and external resource needs for the design and development of products and services, the need to control interfaces between persons involved in the design and development process, the need for involvement of customers and users in the design and development process, the requirements for subsequent provision of products and services, the level of control expected for the design and development process by customers and other relevant interested parties, and the documented information needed to demonstrate that design and development requirements have been met.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.2.1 Design and development planning - supplemental</strong> requires that the organization ensure that design and development planning includes all affected stakeholders within the organization and, as appropriate, its supply chain. Examples of areas for using such a multidisciplinary approach include but are not limited to project management (for example APQP or VDA-RGA), product and manufacturing process design activities (for example DFM and DFA), such as consideration of the use of alternative designs and manufacturing processes, development and review of product design risk analysis (FMEAs) including actions to reduce potential risks, and development and review of manufacturing process risk analysis (for example, FMEAs, process flows, control plan, and standard work instruction.) A note is provided indicating that a multi-disciplinary approach typically includes the organization's design, manufacturing, engineering, quality, production, purchasing, supplier, maintenance, and other appropriate functions.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.2.2 Product design skills</strong> requires the organization to ensure that personnel with product design responsibility are competent to achieve design requirements and are skilled in applicable product design tools and techniques. Applicable tools and techniques must be identified by the organization. A note is provided indicating that an example of product design skills is the application of digitized mathematically based data.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.2.3 Development of products with embedded software</strong> requires the organization to use a process for quality assurance for their products with internally developed embedded software. A software development assessment methodology must be utilized to assess the organization's software development process. Using prioritization based on risk and potential impact to the customer, the organization must retain documented information of a software development capability self-assessment. It further requires the organization to include software development within the scope of their internal audit program (See 9.2.2.1.)</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.3.3 Design and development inputs</strong> requires the organization to determine the requirements essential for the specific types of products and services to be designed and developed. It further requires the organization to consider functional and performance requirements, statutory and regulatory requirements, standards or codes of practice that the organization has committed to implement, and potential consequences of failure due to the nature of the products and services. It further requires that inputs be adequate for design and development purposes, as well as complete and unambiguous. Finally, it requires that conflicting design and development inputs be resolved and that the organization retain documented information on design and development inputs.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.3.1 Product design input</strong> requires the organization to identify, document, and review product design input requirements as a result of contract review. Product design input requirements include but are not limited to product specification including but not limited to special characteristics (see Section 8.3.3.3), boundary and interface requirements, identification, traceability, and packaging, consideration of design alternatives, assessment of risks with the input requirements and the organization's ability to mitigate/manage the risks, including from the feasibility analysis, targets for conformity to product requirements including preservation, reliability, durability, serviceability, health, safety, environmental, development timing, and cost, applicable statutory and regulatory requirements of the customer identified country of destination, if provided, and embedded software requirements.</p>
+                <p>This requirement also mandates that the organization will have a process to deploy information gained from previous design projects, competitive product analysis (benchmarking), supplier feedback, internal input, field data, and other relevant sources for current and future projects of a similar nature. A note is given indicating that one approach for considering design alternatives is the use of trade-off curves.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.3.2 Manufacturing process design input</strong> requires the organization to identify, document, and review manufacturing process design input requirements including but not limited to product design output data including special characteristics, targets for productivity, process capability, timing, and cost, manufacturing technology alternatives, customer requirements, if any, experience from previous developments, new materials, product handling and ergonomic requirements, and design for manufacturing and design for assembly. It further requires the manufacturing process design to include the use of error-proofing methods to a degree appropriate to the magnitude of the problem(s) and commensurate with the risks encountered.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.3.3 Special Characteristics</strong> requires the organization to use a multi-disciplinary approach to establish, document, and implement its processes to identify special characteristics, including those determined by the customer and the risk analysis performed by the organization, and in so doing to ensure documentation of all special characteristics in the drawings (as required), risk analysis (such as FMEA), control plans, and standard work/operator instructions, special characteristics are identified with specific markings and are cascaded through each of these documents, development of control and monitoring strategies for special characteristics of products and production processes, customer specified approvals, when required. It further requires compliance with customer specified definitions and symbols or the organization's equivalent symbols or notations, as defined in a symbol conversion table. If used, the symbol conversion table must be submitted to the customer.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.3.4 Design and development controls</strong> requires the organization to apply controls to the design and development process to ensure that the results to be achieved are defined, that reviews are conducted to evaluate the ability of the results of design and development to meet requirements, that verification activities are conducted to ensure that the design and development outputs meet the input requirements, that validation activities are conducted to ensure that the resulting products and services meet the requirements for the specified application or intended use, that any necessary actions are taken on problems determined during the reviews, or verification and validation activities, and that documented information of these activities is retained.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.4.1 Monitoring</strong> requires measurements at specified stages during the design and development of products and processes be defined, analyzed, and reported with summary results as an input to management review (see Section 9.3.2.1.) It further requires that when required by the customer, measurements of the product and process development activity be reported to the customer at stages specified, or agreed to, by the customer. A note is provided indicating that when appropriate, these measurements may include quality risks, costs, lead times, critical paths, and other measurements.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.4.2 Design and development validation</strong> requires design and development validation be performed in accordance with customer requirements, including any applicable industry and governmental agency-issued regulatory standards. The timing of design and development validation must be planned in alignment with customer specified timing, as applicable. This requirement goes on to mandate that where contractually agreed with the customer, this must include evaluation of the interaction of the organization's product, including embedded software, within the system of the final customer's product.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.4.3 Prototype program</strong> requires that when required by the customer, the organization must have a prototype program and control plan. The organization must use, whenever possible, the same suppliers, tooling, and manufacturing processes as will be used in production. This requirements goes on to stipulate that all performance testing activities be monitored for timely completion and conformity to requirements, and that when services are outsourced, the organization include the type and extent of control in the scope of its quality management system to ensure that outsourced services conform to requirements (see ISO 9001, Section 8.4.)</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.4.4 Product approval process</strong> requires the organization to establish, implement, and maintain a product and manufacturing approval process conforming to requirements defined by the customer. It also requires the organization to approve externally provided products and services per ISO 9001, Section 8.4.3, prior to submission of their part approval to the customer. Finally, it requires the organization to obtain documented product approval prior to shipment, if required by the customer. Records of such approval are to be retained. A note is provided indicating that product approval should be subsequent to the verification of the manufacturing process.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.3.5 Design and development outputs</strong> requires the organization to ensure that design and development outputs meet the input requirements, are adequate for the subsequent processes for the provision of products and services, include or reference monitoring and measuring requirements, as appropriate, and acceptance criteria, and specify the characteristics of the products and services that are essential for their intended purpose and their safe and proper provision. Furthermore, it requires the organization to retain documented information on design and development outputs.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.5.1 Design and development outputs - supplemental</strong> requires the product design output to be expressed in terms that can be verified and validated against product design input requirements. The product design output must include but is not limited to design risk analysis (FMEA), reliability study results, product special characteristics, results of product design error proofing, such as DFSS, DFMA, and FTA, product definition including 3D models, technical data packages, product manufacturing information, and geometric dimensioning and tolerances (GD&amp;T), product design review results, service diagnostic guidelines and repair and serviceability instructions, service part requirements, and packaging and labeling requirements for shipping. A note is provided indicating that interim design outputs should include any engineering problems being resolved through a trade-off process.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.5.2 Manufacturing process design output</strong> requires the organization to document the manufacturing process design output in a manner that enables verification against the process design inputs. It further requires the organization to verify the outputs against manufacturing process design requirements. Finally, it requires the manufacturing process design output include specifications and drawings, special characteristics for product and manufacturing processes, identification of process input variables that impact characteristics, tooling and equipment for production and control, including capability studies of equipment and processes, manufacturing process flow charts/layout, including linkages of product, process, and tooling, capacity analysis, manufacturing process FMEA, maintenance plans and instructions, control plan (See Annex A), standard work and work instructions, process approval acceptance criteria, data for quality, reliability, maintainability, and measurability, results of error-proofing identification and verification, as appropriate, methods of rapid detection, feedback, and correction of product/manufacturing process nonconformities.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.3.6 Design and development changes</strong> requires the organization to identify, review and control changes made during, or subsequent to, the design and development of products and services, to the extent necessary to ensure that there is no adverse impact on conformity to requirements. It further requires the organization to retain documented information on design and development changes, the results of reviews, the authorization of the changes, and the actions taken to prevent adverse impacts.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.3.6.1 Design and development changes-supplemental</strong> requires the organization to evaluate all design changes after initial product approval, including those proposed by the organization or its suppliers, for potential impact on fit, form, function, performance, and/or durability. These changes have to be validated against customer requirements and approved internally, prior to production implementation. If further indicates that if required by the customer, the organization must obtain documented approval, or a documented waiver, from the customer prior to production implementation. Finally, it stipulates that for products with embedded software, the organization must document the revision level of software and hardware as part of the change record.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.4 Control of Externally Provided Processes, Products and Services</strong></p>
+                <p><strong>8.4.1 General</strong> requires the organization to ensure that externally provided processes, products and services conform to requirements. It further requires the organization to determine the controls to be applied to externally provided processes, products and services when products and services from external providers are intended for incorporation into the organization's own products and services, when products and services are provided directly to the customer(s) by external providers on behalf of the organization, or when a process, or part of a process, is provided by an external provider as a result of a decision by the organization. This requirement further stipulates that the organization must determine and apply criteria for the evaluation, selection, monitoring of performance, and re-evaluation of external providers, based on their ability to provide processes or products and services in accordance with requirements. Lastly the organization is required to retain documented information of these activities and any necessary actions arising from the evaluations.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.1.1 General - supplemental</strong> requires the organization to include all products and services that affect customer requirements such as sub-assembly, sequencing, sorting, rework, and calibration services in the scope of their definition of externally provided products, processes, and services.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.1.2 Supplier selection process</strong> requires the organization to have a documented supplier selection process. The selection process must include an assessment of the selected supplier's risk to product conformity and uninterrupted supply of the organization's product to their customers, relevant quality and delivery performance, an evaluation of the supplier's quality management system, multi-disciplinary decision making; and an assessment of software development capabilities, if applicable. The requirement goes on to indicate that other supplier selection criteria that should be considered include volume of automotive business (absolute and as a percentage of total business), financial stability, purchased product, material, or service complexity, required technology (product or process), adequacy of available resources (e.g., people, infrastructure), design and development capabilities (including project management), manufacturing capability, change management process, business continuity planning (e.g. disaster preparedness, contingency planning), logistics process, and customer service.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.1.3 Customer-directed sources (also known as "Directed-Buy")</strong> requires that when specified by the customer, the organization purchase products, materials, or services from customer-directed sources. It goes on to require that all requirements of Section 8.4 (except the requirements in IATF 16949, Section 8.4.1.2) are applicable to the organization's control of customer-directed sources unless specific agreements are otherwise defined by the contract between the organization and the customer.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.4.2 Type and extent of control</strong> requires the organization to ensure that externally provided processes, products and services do not adversely affect the organization's ability to consistently deliver conforming products and services to its customers. Furthermore, it requires the organization to ensure that externally provided processes remain within the control of its quality management system, to define both the controls that it intends to apply to an external provider and those it intends to apply to the resulting output, to take into consideration the potential impact of the externally provided processes, products and services on the organization's ability to consistently meet customer and applicable statutory and regulatory requirements, as well as the effectiveness of the controls applied by the external provider. This requirement also stipulates that the organization must determine the verification, or other activities, necessary to ensure that the externally provided processes, products and services meet requirements.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.2.1 Type and extent of control - supplemental</strong> requires the organization to have a documented process to identify outsourced processes and to select the types and extent of controls used to verify conformity of externally provided products, processes, and services to internal (organizational) and external customer requirements. It goes on to require that the process must include the criteria and actions to escalate or reduce the types and extent of controls and development activities based on supplier performance and assessment of product, material, or service risks.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.2.2 Statutory and regulatory requirements</strong> requires the organization to document their process to ensure that purchased products, processes, and services conform to the current applicable statutory and regulatory requirements in the country of receipt, the country of shipment, and customer identified country of destination, if provided. It goes on to require that if the customer defines special controls for certain products with statutory and regulatory requirements, the organization will ensure they are implemented and maintained as defined, including at suppliers.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.2.3 Supplier quality management system development</strong> stipulates that the organization is to require their suppliers of automotive products and services to develop, implement, and improve a quality management system certified to ISO 9001, unless otherwise authorized by the customer (e.g. Item a) below), with the ultimate objective of becoming certified to this Automotive QMS Standard. Unless otherwise specified by the customer, the sequence followed should be as follows. First compliance to ISO 9001 through second-party audits, second certification to ISO 9001 through third-party audits, unless otherwise specified by the customer, suppliers to the organization shall demonstrate conformity to ISO 9001 by maintaining a third-party certification issued by a certification body bearing the accreditation mark of a recognized IAF MLA (International Accreditation Forum Multilateral Recognition Arrangement) member and where the accreditation bodies main scope includes management system certification to ISO/IEC 17021, third certification to ISO 9001 with compliance to other customer defined QMS requirements (such as Minimum Automotive Quality Management System Requirements for Sub-Tier Suppliers (MAQMSR) or equivalent) through second party audits, fourth certification to ISO 9001 with compliance to IATF 16949 through second party audits, and fifth certification to 16949 through third-party audits (valid third party certification of the supplier to IATF 16949 by an IATF recognized certification body.)</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.2.3.1 Automotive product-related software or automotive products with embedded software</strong> requires that the organization require their suppliers of automotive product related software, or automotive products with embedded software, to implement and maintain a process for software quality assurance for their products. It also requires a software development assessment methodology be utilized to assess the supplier's software development process. Using prioritization based on risk and potential impact to the customer, the organization will require the supplier to retain documented information of a software development capability self-assessment.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.2.4 Supplier monitoring</strong> requires the organization to have a documented process and criteria to evaluate supplier performance in order to ensure conformity of externally provided products, processes, and services to internal and external customer requirements. At a minimum, supplier performance indicators must include delivered product conformity to requirements, customer disruptions at the receiving plant, including yard holds and stop ships, delivery schedule performance, and number of occurrences of premium freight. This requirement also stipulates that if provided by the customer, the organization will also include the following additional supplier performance monitoring: Special status customer notifications related to quality and delivery issues; and dealer returns, warranty, field actions, and recalls.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.2.4.1 Second party audits</strong> requires the organization to include a second party audit process in their supplier management approach. Second party audits may be used for supplier risk assessment, supplier monitoring, supplier QMS development, product audits, and process audits. It goes on to require that based on a risk analysis, including product safety/regulatory requirements, performance of the supplier, and QMS certification level, at a minimum, the organization will document the criteria for determining the need, frequency, and scope of second party audits. Finally, it requires the organization to retain records of the second party audit reports. If the scope of the second party audit is to assess the supplier's quality management system, then the approach must be consistent with the automotive process approach. A note is provided indicating that guidance may be found in the IATF Auditor Guide and ISO 19011.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.2.5 Supplier development</strong> requires the organization to determine the priority, type, extent, and timing of required supplier development actions for its active suppliers. Determination inputs must include but are not limited to performance issues identified through supplier monitoring (see Section 8.4.2.4), second party audit findings (see Section 8.4.2.4.1), third party quality management system certification status; and risk analysis. This requirements also mandates that the organization implement actions necessary to resolve necessary to resolve open (unsatisfactory) performance issues and pursue opportunities for continual improvement.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.4.3 Information for external providers</strong> requires the organization to ensure the adequacy of requirements prior to their communication to the external provider. It further requires the organization to communicate to external providers its requirements for the processes, products and services to be provided, including specific products and services, methods, processes, equipment; and requirements pertaining the release of products and services. This requirements further requires that the organization communicate additional information to external providers including required competence, including any required qualification of persons, the external providers' interactions with the organization, control and monitoring of the external providers' performance to be applied by the organization, and verification or validation activities that the organization, or its customer, intends to perform at the external providers' premises.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.4.3.1 Information for external providers supplemental</strong> requires the organization to pass down all applicable statutory and regulatory requirements and special product and process characteristics to their suppliers and require the suppliers to cascade all applicable requirements down the supply chain to the point of manufacture.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.5 Production and Service Provision</strong></p>
+                <p><strong>8.5.1 Control of production and service provision</strong> requires the organization to implement production and service under controlled conditions. Controlled conditions are understood to include (as applicable) the availability of documented information that defines the characteristics of the products to be produced, the services to be provided, or the activities to be performed, as well as the results to be achieved. Controlled conditions is also taken to include the availability and use of suitable monitoring and measuring resources, the implementation of monitoring and measurement activities at appropriate stages to verify that criteria for control of processes or outputs, and acceptance criteria for products and services, the use of suitable infrastructure and environment for the operation of processes, the appointment of competent persons, including any required qualification, the validation, and periodic revalidation, of the ability to achieve planned results of the processes for production and service provision, where the resulting output cannot be verified by subsequent monitoring or measurement, the implementation of actions to prevent human error, and the implementation of release, delivery and post-delivery activities. A note is provided that indicating that suitable infrastructure includes appropriate manufacturing equipment required to ensure product compliance. Monitoring and measuring resources include appropriate monitoring and measuring equipment required to ensure effective control of manufacturing processes.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.1.1 Control plan</strong> requires the organization to develop control plans (in accordance with Annex A) at the system, subsystem, component, and/or material levels for the relevant manufacturing site and all product suppliers, including those for processes producing bulk materials as well as parts. Family control plans are acceptable for bulk material and similar parts using a common manufacturing process. It goes on to require the organization to have a control plan for pre-launch and product that shows linkage and incorporates information from the design risk analysis (if provided by the customer), process flow diagram, and manufacturing process risk analysis outputs (such as FMEA.) It also requires the organization to, if required by the customer, to provide measurement and conformity data collected during execution of either the pre-launch or production control plans. Control plans must include controls used for the manufacturing process control, including verification of job set-ups, first-off/last-off part validation, as applicable, methods for monitoring of control exercised over special characteristics (See Annex A) defined by both the customer and the organization, the customer required information, if any, and specified reaction plan (see Annex A) when nonconforming product is detected, the process becomes statistically unstable or not statistically capable. Finally, the organization has to review control plans, and update them for events such as when the organization determines it has shipped nonconforming product to the customer, when any change occurs affecting product, manufacturing process, measurement, logistics, supply sources, production volume changes, or risk analysis (FMEA) (see Annex A), after a customer complaint and implementation of the associated corrective action, when applicable, and at a set frequency based on a risk analysis. If required by the customer, the organization has to obtain customer approval after review or revision of the control plan.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.1.2 Standardized work - operator instructions and visual standards</strong> requires The organization shall ensure that standardized work documents are communicated to and understood by the employees who are responsible for performing the work, legible, presented in the language(s) understood by the personnel responsible to follow them; and accessible for use at the designated work area. Standardized work documents must also include rules for operator safety.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.1.3 Verification of job set-ups</strong> requires the organization to verify job set-ups when performed, such as an initial run of a job, material changeover, or job change that requires a new set-up, maintain documented information for set-up personnel, use statistical methods of verification, where applicable, perform first-off/last-off part validation, as applicable; where applicable, first-off parts should be retained for comparison with the last-off parts; where applicable, last-off parts should be retained for comparison with first-off parts in subsequent runs; and retain records of process and product approval following set-up and first-off/last off part validations.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.1.4 Verification after shutdown</strong> requires the organization to define and implement the necessary actions to ensure product compliance with requirements after a planned or unplanned shutdown period.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.1.5 Total predictive maintenance</strong> requires the organization to develop, implement, and maintain a documented total productive maintenance system. At minimum, the system must include identification of process equipment necessary to product conforming product at the required volume, availability of replacement parts for the equipment, provision of resources for machine, equipment, and facility maintenance, packaging and preservation of equipment, tooling, and gauging, applicable customer specific requirements, documented maintenance objectives, for example: OEE (Overall Equipment Effectiveness), MTBF (Mean Time Between Failure), and MTTR (Mean Time To Repair), and Preventive Maintenance compliance metrics. Performance to the maintenance objectives shall form an input into management review (See ISO 9001, Section 9.3), regular review of maintenance plan and objectives and a documented action plan to address corrective actions where objectives are not achieved, use of preventive maintenance methods, use of predictive maintenance methods, as applicable; and periodic overhaul.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.1.6 Management of production tooling and manufacturing, test, inspection tooling, and equipment</strong> requires the organization to provide resources for tool and gauge design, fabrication, and verification activities for production and service materials and for bulk materials, as applicable. It also requires the organization to establish and implement a system for production tooling management, whether owned by the organization or the customer, including maintenance and repair facilities and personnel, storage and recovery, set-up, tool-change programs for perishable tools, tool design modification documentation, including engineering change level of the product, tool modification and revision to documentation, and tool identification, such as serial or asset number; the status, such as production, repair, or disposal; ownership; and location. It further requires that the organization to verify that customer-owned tools, manufacturing equipment, and test/inspection equipment are permanently marked in a visible location so that the ownership and application of each item can be determined. Finally, it requires that the organization must implement a system to monitor these activities if any work is outsourced.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.1.7 Production scheduling</strong> requires the organization to ensure that production is scheduled in order to meet customer orders/demands such as Just-In-Time (JIT), and is supported by an information system that permits access to production information at key stages of the process and is order driven. It further requires the organization to include relevant planning information during production scheduling, e.g. customer orders, supplier on-time delivery performance, capacity, shared loading (multi-part station), lead time, inventory level, preventive maintenance, and calibration.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.5.2 Identification and traceability</strong> requires the organization to use suitable means to identify outputs when it is necessary to ensure the conformity of products and services. It further requires the organization to identify the status of outputs with respect to monitoring and measurement requirements throughout production and service provision. Lastly, it requires the organization to control the unique identification of the outputs when traceability is a requirement, and to retain the documented information necessary to enable traceability. A note is provided indicating that inspection and test status is not indicated by the location of product in the production flow unless inherently obvious, such as material in an automated production transfer process. Alternatives are permitted if the status is clearly identified, documented, and achieves the designated purpose.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.2.1 Identification and traceability - supplemental</strong> indicates that the purpose of traceability is to support identification of clear start and stop points for product received by the customer or in the field that may contain quality and/or safety-related nonconformities. It goes on to mandate the following approach.</p>
+                <p>The organization must conduct an analysis of internal, customer, and regulatory traceability requirements for all automotive products, including developing and documenting traceability plans, based on the levels of risk or failure severity for employees, customer, and consumers. The plan must define the appropriate traceability systems, processes, and methods by product, process, and manufacturing location that enable the organization to identify nonconforming and/or suspect product, enable the organization to segregate nonconforming and/or suspect product, ensure the ability to meet the customer and/or regulatory response time requirements, ensure documented information is retained in the format (electronic, hardcopy, archive) that enables the organization to meet the response time requirements, ensure serialized identification of individual products, if specified by the customer or regulatory standards, and ensure the identification and traceability requirements are extended to externally provided products with safety/regulatory characteristics.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.5.3 Property belonging to customers or external providers</strong> requires the organization to exercise care with property belonging to customers or external providers while it is under the organization's control or being used by the organization. It further requires the organization to identify, verify, protect and safeguard customers' or external providers' property provided for use or incorporation into the products and services. Lastly, it requires that when the property of a customer or external provider is lost, damaged or otherwise found to be unsuitable for use, the organization must report this to the customer or external provider and retain documented information on what has occurred.</p>
+                <p><strong>8.5.4 Preservation</strong> requires the organization to preserve the outputs during production and service provision, to the extent necessary to ensure conformity to requirements.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.4.1 Preservation-supplemental</strong> requires preservation to include identification, handling, contamination control, packaging, storage, transmission or transportation, and protection. Preservation must also apply to materials and components form external and/or internal providers from receipt through processing, including shipment and until delivery to/acceptance by the customer. In order to detect deterioration, the organization must assess at appropriate planned intervals the condition of product in stock, the place/type of storage container, and the storage environment. It also requires the organization to use an inventory management system to optimize inventory turns over time and ensure stock rotation, such as "First-in-first-out" (FIFO.) Finally, the organization must ensure that obsolete product is controlled in a manner similar to that of nonconforming product. Organizations must comply with preservation, packaging, shipping, and labeling requirements as provided by their customer.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.5.5 Post-delivery activities</strong> requires the organization to meet requirements for post-delivery activities associated with the products and services. It further requires the organization (when determining the extent of post-delivery activities that are required) to consider any applicable statutory and regulatory requirements, the potential undesired consequences associated with its products and services, the nature, use and intended lifetime of its products and services, any applicable customer requirements, and any relevant customer feedback.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.5.1 Feedback of information from service</strong> requires the organization to ensure that a process for communication of information on service concerns to manufacturing, material handling, logistics, engineering, and design activities is established. Two notes are provided. First that the intent of the addition of "service concerns" to this sub-clause is to ensure the organization is aware of nonconforming products and materials that may be identified at the customer location or in the field. Secondly, that "Service Concerns" should include the results of field failure test analysis (see Section 10.2.6) where applicable.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.5.2 Service agreement with customer</strong> requires that when there is a service agreement with the customer, the organization will verify that the relevant service centers comply with applicable requirements, verify the effectiveness of any special purpose tools or measurement equipment; and ensure that all service personnel are trained in applicable requirements.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.5.6 Control of changes</strong> requires the organization to review and control changes for production or service provision, to the extent necessary to ensure continuing conformity with requirements. It further requires the organization to retain documented information describing the results of the review of changes, the person(s) authorizing the change, and any necessary actions arising from the review.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.6.1 Control of changes - supplemental</strong> requires the organization to have a documented process to control and react to changes that impact product realization. The effects of any change, including those changes caused by the organization, the customer, or any supplier, must be assessed. It goes on to require the organization to design verification and validation activities to ensure compliance with customer requirements, validate changes before implementation, document the evidence of related risk analysis, and retain records of verification and validation. Changes, including those made at suppliers, should require a production trial run for verification of changes (such as changes to part design, manufacturing location, or manufacturing process) to validate the impact of any changes on the manufacturing process. When required by the customer, the organization must notify the customer of any planned product realization changes after the most recent product approval, obtain documented approval, prior to implementation of the change, and complete additional verification or identification requirements, such as production trial run and new product validation.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.5.6.1.1 Temporary change of process controls</strong> requires the organization to identify, document, and maintain a list of the process controls, including inspection, measuring, test, and error-proofing devices, that includes the primary process control and the approved back-up or alternate methods. It also requires the organization to document the process that manages the use of alternate control methods. The organization must include in this process, based on risk analysis (such as FMEA), severity, and the internal approvals to be obtained prior to production implementation of the alternate process control method. Before shipping product that was inspected or tested using the alternate method, if required, the organization must obtain approval from the customer. The organization must maintain and periodically review a list of approved alternate process control methods that are referenced in the control plan.</p>
+                <p>It also requires that standard work instructions be available for each alternate process control method. The organization must review the operation of alternate process controls on a daily basis, at a minimum, to verify implementation of standard work with the goal to return to the standard process as defined by the control plan as soon as possible. Example methods include daily quality focused audits (e.g. layered process audits, as applicable); and daily leadership meeting. Restart verification is documented for a defined period based on severity and confirmation that all features of the error proofing device or process are effectively reinstated. Finally, the organization must implement traceability of all product produced while any alternate process control devices or processes are being used (e.g. verification and retention of first piece and last piece from every shift.)</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.6 Release of products and services</strong> requires the organization to implement planned arrangements, at appropriate stages, to verify that the product and service requirements have been met. It further requires the release of products and services to the customer not to proceed until the planned arrangements have been satisfactorily completed, unless otherwise approved by a relevant authority and, as applicable, by the customer. Lastly it requires the organization to retain evidence of conformity with the acceptance criteria, and ensure traceability to the person(s) authorizing the release.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.6.1 Release of products and services-supplemental</strong> requires the organization to ensure that the planned arrangement to verify that the product and service requirements have been met encompass the control plan and are documented as specified in the control plan. It also requires the organization to ensure that the planned arrangements for initial release of products and services encompass product or service approval. Finally, it requires the organization to ensure that product or service approval is accomplished after changes following initial release, according to ISO 9001, Section 8.5.6.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.6.2 Layout inspection and functional testing</strong> requires a layout inspection and a functional verification to applicable customer engineering material and performance standards be performed for each product as specified in the control plans. Results of same must be available for customer review. Two notes are provided, The first indicates that layout inspection is the complete measurement of all product dimensions shown on the design record(s). The second establishes that the frequency of layout inspection is determined by the customer.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.6.3 Appearance items</strong> requires that any organization manufacturing parts designated by the customer as "appearance items", must provide appropriate resources, including lighting, for evaluation, masters for color, grain, gloss, metallic brilliance, texture, distinctness of image (DOI), and haptic technology, as appropriate, maintenance and control of appearance masters and evaluation equipment, and verification that personnel making appearance evaluations are competent and qualified to do so.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.6.4 Verification and acceptance of conformity of externally provided products and services</strong> requires the organization to have a process to ensure the quality of externally provided processes, product, and services utilizing (one or more of these) receipt and evaluation of statistical data provided by the supplier to the organization, receiving inspection and/or testing, such as sampling based on performance, second party or third party assessments or audits of supplier sites when coupled with records of acceptable delivered product conformance to requirements, part evaluation by a designated laboratory, or another method agreed with the customer.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.6.5 Statutory and regulatory conformity</strong> requires that prior to release of externally provided products into its production flow, the organization must confirm and be able to provide evidence that externally provided processes, products, and services conform to the latest applicable statutory, regulatory, and other requirements in the countries where they are manufactured and in the customer-identified countries of destination, if provided.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.6.6 Acceptance criteria</strong> requires that acceptance criteria be defined by the organization and, where appropriate or required, approved by the customer. For attribute data sampling, the acceptance level shall be zero defects (see Section 9.1.1.1.)</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.7 Control of Nonconforming Outputs</strong></p>
+                <p><strong>8.7.1</strong> Requires the organization to ensure that outputs that do not conform to their requirements are identified and controlled to prevent their unintended use or delivery. It further requires the organization to take appropriate action based on the nature of the nonconformity and its effect on the conformity of products and services. This also applies to nonconforming products and services detected after delivery of products, during or after the provision of services. Additionally, this requirement mandates that the organization deal with nonconforming outputs in one or more of the following ways. These include correction, segregation, containment, return or suspension of provision of products and services, informing the customer, and obtaining authorization for acceptance under concession. Lastly, it requires that conformity to the requirements must be verified when nonconforming outputs are corrected.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.7.1.1 Customer authorization for concession</strong> requires the organization to obtain a customer concession or deviation permit prior to further processing whenever the product or manufacturing process is different from that which is currently approved. It further requires the organization to obtain customer authorization prior to further processing for "use as is" and rework dispositions of nonconforming product. If subcomponents are reused in the manufacturing process, that subcomponent reuse must be clearly communicated to the customer in the concession or deviation permit. Finally, this requirement stipulates that the organization maintain a record of the expiration date or quantity authorized under concession. The organization must also ensure compliance with the original or superseding specifications and requirements when the authorization expires. Material shipped under concession must be properly identified on each shipping container (this applies equally to purchased product). The organization must approve any requests from suppliers before submission to the customer.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.7.1.2 Control of nonconforming product-customer-specified process</strong> requires the organization to comply with applicable customer-specified controls for nonconforming product.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.7.1.3 Control of suspect product</strong> requires the organization to ensure that product with unidentified or suspect status be classified and controlled as nonconforming product. The organization must ensure that all appropriate manufacturing personnel receive training for containment of suspect and nonconforming product.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.7.1.4 Control of reworked product</strong> requires the organization to utilize risk analysis (such as FMEA) methodology to assess risks in the rework process prior to a decision to rework the product. If required by the customer, the organization must obtain approval from the customer prior to commencing rework of the product. This requirement also indicates that the organization must have a documented process for rework confirmation in accordance with the control plan or other relevant documented information to verify compliance to original specifications. Instructions for disassembly or rework, including re-inspection and traceability requirements, must be accessible to and utilized by the appropriate personnel. Finally, the organization must obtain a documented customer authorization for concession for the product to be repaired, and must retain documented information on the disposition of repaired product including quantity, disposition, disposition date, and applicable traceability information.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.7.1.6 Customer notification</strong> requires the organization to immediately notify the customer in the event that nonconforming product has been shipped. Initial communication must be followed with detailed documentation of the event.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>8.7.1.7 Nonconforming product disposition</strong> requires the organization to have a documented process for disposition of nonconforming product not subject to rework or repair. For product not meeting requirements, the organization must verify that the product to be scrapped is rendered unusable prior to disposal. It goes on to require that the organization not divert nonconforming product to service or other use without prior customer approval.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>8.7.2</strong> Requires the organization to retain documented information that describes the nonconformity, describes the actions taken, describes any concessions obtained, and identifies the authority deciding the action in respect of the nonconformity.</p>
+            </div>
+        </section>
+
+        <!-- Clause 9 -->
+        <section id="clause-9">
+            <h2 class="section-title">9. Performance Evaluation</h2>
+            <div class="qms-requirement">
+                <p><strong>9.1 Monitoring, Measurement, Analysis and Evaluation</strong></p>
+                <p><strong>9.1.1 General</strong> requires the organization to determine what needs to be monitored and measured, the methods for monitoring, measurement, analysis and evaluation needed to ensure valid results, when the monitoring and measuring to be performed, and when the results from monitoring and measurement to be analyzed and evaluated. Furthermore, it requires the organization to evaluate the performance and the effectiveness of the quality management system. Lastly, it requires the organization to retain appropriate documented information as evidence of the results.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.1.1.1 Monitoring and measurement of manufacturing processes</strong> requires the organization to perform process studies on all new manufacturing (including assembly or sequencing) processes to verify process capability and to provide additional input for process control, including those for special characteristics. A note is given that indicates for some manufacturing processes, it may not be possible to demonstrate product compliance through process capability. For those processes, alternate methods such as batch conformance to specification may be used.</p>
+                <p>This requirement goes on to mandate that the organization maintain manufacturing process capability or performance results as specified by the customer's part approval process requirements. The organization must also verify that the process flow diagram, PFMEA, and control plan are implemented, including adherence to measurement techniques, sampling plans, acceptance criteria, records of actual measurement values and/or test results for variable data, and reaction plans and escalation process when acceptance criteria are not met. It further requires that significant process events, such as tool change or machine repair, be recorded and retained as documented information. Finally, it requires the organization to initiate a reaction plan indicated on the control plan and evaluated for impact on compliance to specifications for characteristics that are either not statistically capable or are unstable. Such reason plans must include containment of product and 100 percent inspection, as appropriate. A corrective action plan must be developed and implemented by the organization indicating specific actions, timing, and assigned responsibilities to ensure that the process becomes stable and statistically capable. The plans must be reviewed with and approved by the customer, when required. Lastly, this requirement indicates that the organization must maintain records of effective dates of process changes.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.1.1.2 Identification of statistical tools</strong> requires the organization to determine the appropriate use of statistical tools. The organization must verify that appropriate statistical tools are included as part of the advanced product quality planning (or equivalent) process and included in the design risk analysis (such as DMEA) (where applicable), the process risk analysis (such as PFMEA), and the control plan.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.1.1.3 Application of statistical concepts</strong> requires statistical concepts, such as variation, control (stability), process capability, and the consequences of over-adjustment, be understood and used by employees involved in the collection, analysis, and management of statistical data.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>9.1.2 Customer satisfaction</strong> requires the organization to monitor customers' perceptions of the degree to which their needs and expectations have been fulfilled. Further the organization is required to determine the methods for obtaining, monitoring and reviewing this information.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.1.2.1 Customer satisfaction - supplemental</strong> requires customer satisfaction with the organization be monitored through continual evaluation of internal and external performance indicators to ensure compliance to the product and process specification and other customer requirements. Performance indicators must be based on objective evidence and include delivered part quality performance, customer disruptions, field returns, recalls, and warranty (where applicable), delivery schedule performance (including incidents of premium freight), and customer notifications related to quality or delivery issues, including special status. This requirement also stipulates that the organization monitor the performance of manufacturing processes to demonstrate compliance with customer requirements for product quality and process efficiency. The monitoring must include the review of customer performance data including online customer portals and customer scorecards, where provided.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>9.1.3 Analysis and evaluation</strong> requires the organization to analyze and evaluate appropriate data and information arising from monitoring and measurement. Furthermore, it requires that the results of analysis be used to evaluate conformity of products and services, the degree of customer satisfaction, the performance and effectiveness of the quality management system, if planning has been implemented effectively, the effectiveness of actions taken to address risks and opportunities, the performance of external providers, and the need for improvements to the quality management system.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.1.3.1 Prioritization</strong> requires that trends in quality and operational performance be compared with progress toward objectives and lead to action to support prioritization of actions for improving customer satisfaction.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>9.2 Internal Audit</strong></p>
+                <p><strong>9.2.1</strong> Requires the organization to conduct internal audits at planned intervals to provide information on whether the quality management system conforms to the organization's own requirements for its quality management system, as well as the requirements of ISO 9001:2015, and to ensure that the quality management system is effectively implemented and maintained.</p>
+                <p><strong>9.2.2</strong> Requires the organization to plan, establish, implement and maintain an audit program(s) including the frequency, methods, responsibilities, planning requirements and reporting, which must take into consideration the importance of the processes concerned, changes affecting the organization, and the results of previous audits. The organization is further required to define the audit criteria and scope for each audit, to select auditors and conduct audits to ensure objectivity and the impartiality of the audit process, to ensure that the results of the audits are reported to relevant management, to take appropriate correction and corrective actions without undue delay, and to retain documented information as evidence of the implementation of the audit program and the audit results.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.2.2.1 Internal Audit Program</strong> requires the organization to have a documented internal audit process. The process must include the development and implementation of an internal audit program that covers the entire quality management system, including quality management system audits, manufacturing process audits, and product audits. It also mandates that the audit program be prioritized based upon risk, internal and external performance trends and criticality of the processes. Additionally, where the organization is responsible for software development, the organization must include software development capability assessments in their internal audit program. Finally, it is required that the frequency of audits be reviewed, and where appropriate, adjusted based on occurrence of process changes, internal and external nonconformities, and/or customer complaints. The effectiveness of the audit program must be reviewed as a part of management review.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.2.2.2 Quality management system audit</strong> requires the organization to audit all quality management system processes over each three-year calendar period, according to an annual program, using the process approach to verify compliance with this Automotive QMS Standard. Integrated with these audits, the organization must also sample customer specific quality management system requirements for effective implementation.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.2.2.3 Manufacturing process audit</strong> requires the organization to audit all manufacturing processes over each three year calendar period to determine their effectiveness and efficiency using customer specific require approach for process audits. Where not defined by the customer, the organization must determine the approach to be used. It goes on to mandate that within each individual audit plan, each manufacturing process must be audited on all shifts where it occurs, including the appropriate sampling of the shift handover. Finally, it stipulates that the manufacturing process audit include an audit of the effective implementation of the process risk analysis (such as PFMEA), control plan, and associated documents.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.2.2.4 Product audit</strong> requires the organization to audit products using customer specific required approaches at appropriate stages of production and delivery to verify conformity to specified requirements. Where not defined by the customer, the organization must determine the approach to be used.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>9.3 Management Review</strong></p>
+                <p><strong>9.3.1 General</strong> requires top management to review the organization's quality management system, at planned intervals, to ensure its continuing suitability, adequacy, effectiveness and alignment with the strategic direction of the organization.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.3.1.1 Management review supplemental</strong> requires management review be conducted at least annually. The frequency of management review must be increased based on risk to compliance with customer requirements resulting from internal or external changes impacting the quality management system and performance related issues.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>9.3.2 Management review inputs</strong> stipulates that the management review be planned and carried out taking into consideration the status of actions from previous management reviews, any changes in external and internal issues that are relevant to the quality management system, any information on the performance and effectiveness of the quality management system, including trends in customer satisfaction/feedback from relevant interested parties, the extent to which quality objectives have been met, process performance and conformity of products and services, nonconformities and corrective actions, monitoring and measurement results, audit results, and the performance of external providers. It further requires that inputs include a discussion of the adequacy of resources, the effectiveness of actions taken to address risks and opportunities (per 6.1), and any opportunities for improvement.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.3.2.1 Management review inputs - supplemental</strong> requires input to management review also include cost of poor quality (cost of internal and external nonconformance), measures of process effectiveness, measures of process efficiency, product conformance, assessments of manufacturing feasibility made for changes to existing operations and for new facilities or new product (see Section 7.1.3.1), customer satisfaction (see ISO 9001, Section 9.1.2), review of performance against maintenance objectives, warranty performance (where applicable), review of customer scorecards (where applicable), identification of potential field failures identified through risk analysis (such as FMEA), and actual field failures and their impact on safety or the environment.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>9.3.3 Management review outputs</strong> requires the outputs of the management review to include decisions and actions related to opportunities for improvement, any need for changes to the quality management system, and resource needs. It further requires the organization to retain documented information as evidence of the results of management reviews.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>9.3.3.1 Management review outputs-supplemental</strong> requires that top management document and implement an action plan when customer performance targets are not met.</p>
+            </div>
+        </section>
+
+        <!-- Clause 10 -->
+        <section id="clause-10">
+            <h2 class="section-title">10. Improvement</h2>
+            <div class="qms-requirement">
+                <p><strong>10.1 General</strong> requires the organization to determine and select opportunities for improvement and implement any necessary actions to meet customer requirements and enhance customer satisfaction. It further requires that improvement action must include improving products and services to meet requirements as well as to address future needs and expectations, as well as correcting, preventing or reducing undesired effects and improving the performance and effectiveness of the quality management system.</p>
+                <p><strong>10.2 Nonconformity and Corrective Action</strong></p>
+                <p><strong>10.2.1</strong> Requires that when a nonconformity occurs, including those arising from complaints, the organization must react to the nonconformity and, as applicable take action to control and correct it and deal with the consequences. Furthermore, it requires the organization to evaluate the need for action to eliminate the cause(s) of the nonconformity, in order that it does not recur or occur elsewhere, by reviewing and analyzing the nonconformity, by determining the causes of the nonconformity, by determining if similar nonconformities exist, or could potentially occur, by implementing any action needed, by reviewing the effectiveness of any corrective action taken, u updating risks and opportunities determined during planning, if necessary, and by making changes to the quality management system, if necessary. Furthermore it requires that corrective actions be appropriate to the effects of the nonconformities encountered.</p>
+                <p><strong>10.2.2</strong> Requires the organization to retain documented information as evidence of the nature of the nonconformities and any subsequent actions taken, as well as the results of any corrective action.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>10.2.3 Problem solving</strong> requires the organization to have a documented process for problem solving including defined approaches for various types and scale of problems (e.g. new product development, current manufacturing issues, field failures, audit findings, etc.), containment, interim actions, and related activities necessary for control of nonconforming outputs (see ISO 9001, Section 8.7), root cause analysis, methodology used, analysis, and results, implementation of systemic corrective actions, including consideration of the impact on similar processes and products, verification of the effectiveness of implemented corrective actions, and reviewing, and where necessary, updating the appropriate documented information (e.g., PFMEA, control plan, etc.) It goes on to require that where the customer has specified prescribed processes, tool, or systems for problem solving, the organization must use those processes, tools or systems unless otherwise approved by the customer.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>10.2.4 Error proofing</strong> requires the organization to have a documented process to determine the use of appropriate error proofing methodologies. Details of the method used must be documented in the process risk analysis (such as PFMEA) and test frequencies must be documented in the control plan. It also requires that the process include the testing of error proofing devices for failure or simulated failure. Records of this must be maintained. Challenge parts, when used, must be identified, controlled, verified, and calibrated where feasible. Error proofing device failures must have a reaction plan.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>10.2.5 Warranty management systems</strong> requires that when it is required to provide warranty for their products, the organization implement a warranty management process. The organization must include in the process a method for warranty party analysis, including NTF (no trouble found.) When specified by the customer, the organization must implement the required warranty management process.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>10.2.6 Customer complaints and field failure test analysis</strong> requires the organizations to perform analysis on customer complaints and field failures, including any returned parts, and to initial problem solving and corrective action to prevent recurrence. It goes on to indicate that (where requested by the customer) this must include analysis of the interaction of embedded software of the organization's product within the system of the final customer's product. Finally, this requirement mandates that the organization communicate the results of testing/analysis to the customer and also within the organization.</p>
+            </div>
+            <div class="qms-requirement">
+                <p><strong>10.3 Continual improvement</strong> requires the organization to continually improve the suitability, adequacy and effectiveness of the quality management system.</p>
+            </div>
+            <div class="qms-requirement supplemental">
+                <p><strong>10.3.1 Continual improvement - supplemental</strong> requires the organization to have a documented process for continual improvement. This process must include identification of the methodology used, objectives, measurement, effectiveness, and documented information, a manufacturing process improvement action plan with emphasis on the reduction of process variation and waste, and risk analysis (such as FMEA.) A note is provided indicating that continual improvement is implemented once manufacturing processes are statistically capable and stable or when product characteristics are predictable and meet customer requirements.</p>
+            </div>
+        </section>
+
+        <!-- Customer Specific Requirements -->
+        <section id="customer-specific">
+            <h2 class="section-title">Customer-Specific Requirements</h2>
+            <p>IATF 16949 offers a set of global automotive quality management systems requirements. But not all requirements could be harmonized. Therefore, each participating automaker has established customer-specific requirements for its suppliers, which must be included in the registration audit in order to obtain customer recognition of IATF 16949 registration.</p>
+            <p>As a result, applicable customer-specific requirements are audited as part of IATF 16949 registration and the particular automaker(s) are listed on the supplier's registration certificate.</p>
+            <p>These customer-specific requirements are set forth in company publications typically found in the official IATF website: <a href="http://www.iatfglobaloversight.org" target="_blank">www.iatfglobaloversight.org</a>. Information on these requirements can also be obtained from the organizations listed below.</p>
+
+            <div class="contact-card">
+                <h4>International Automotive Oversight Bureau (IAOB)</h4>
+                <p>26200 Lahser Road, Suite 320, Southfield, Michigan 48033 USA<br>
+                Phone: (248) 799-3939 | Fax: (248) 799-3943<br>
+                E-mail: quality@iaob.org | Website: <a href="http://www.iaob.org" target="_blank">www.iaob.org</a></p>
+            </div>
+
+            <div class="contact-card">
+                <h4>Society of Motor Manufacturers and Traders (SMMT) Ltd.</h4>
+                <p>71 Great Peter Street, London SW1P 2BN, United Kingdom<br>
+                Phone: 011-44-0-20-7235-7000 | Fax: 011-44-0-20-7235-7112<br>
+                E-mail: quality@smmt.co.uk | Website: <a href="http://www.smmt.co.uk" target="_blank">www.smmt.co.uk</a></p>
+            </div>
+
+            <div class="contact-card">
+                <h4>Verband der Automobilindustrie e. V. (VDA) Qualitätsmanagement Center (QMC)</h4>
+                <p>Behrenstrasse 35, 10117 Berlin, Germany<br>
+                Phone: 011-49-0-30-89-78-42-0 | Fax: 011-49-0-30-89-78-42-605<br>
+                Email: info@vda-qmc.de | Website: <a href="http://www.vda-qmc.de" target="_blank">www.vda-qmc.de</a></p>
+            </div>
+
+            <div class="contact-card">
+                <h4>IATF France</h4>
+                <p>79 rue Jean Jacques Rousseau, 92158 Suresnes Cedex, France<br>
+                Phone: 011-33-1-46-25-02-64<br>
+                E-mail: iatf@iatf-france.com | Website: <a href="http://www.iatf-france.com" target="_blank">www.iatf-france.com</a></p>
+            </div>
+
+            <div class="contact-card">
+                <h4>Associazione Nazionale Fra Industrie Automobilistiche (ANFIA)</h4>
+                <p>Corso Gallileo Ferraris, 61, 10128 Torino, Italy<br>
+                Phone: 011-39-011-54-46-511/505 | Fax: 011-39-011-54-59-86<br>
+                E-mail: anfia@anfia.it | Website: <a href="http://www.anfia.it" target="_blank">www.anfia.it</a></p>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion">
+            <h2 class="section-title">Conclusion</h2>
+            <p>IATF 16949 represents a continuance of a tradition of progress, harmony and perseverance first found in the ISO/TS 16949 standard. In times past, auto manufacturers in each country had imposed separate quality requirements on their suppliers, each with its own set of demands. This caused confusion and wasted time for international suppliers.</p>
+            <p>This problem has been eliminated with the streamlining of these separate national requirements into one commonly used standard. IATF 16949 has ended varying demands and the wastefulness that accompanied them.</p>
+            <p>IATF 16949, the international solution for better automotive quality, is having an enormous impact on thousands of auto suppliers around the world and is pointing them to registration. It has taken the place of all other previous national automotive quality management systems standards. Registration mandates from the Big 3 and others have taken effect.</p>
+            <p>As registration typically takes 12 to 18 months to complete, suppliers are advised to start moving now. Registration should not be put on the back burner. Companies shouldn't delay registration, but should take full advantage of the competitive edge such status carries.</p>
+            <p>There are many benefits to be derived from implementing a well-structured quality management system such as IATF 16949, and the registration process is rigorous and timely. For this reason, not to mention the high rate of failure that afflicts companies seeking registration for the first time, it's a good idea to seek the services of an outside professional consulting firm.</p>
+            <p>A competent quality consultant can walk your company through the IATF 16949 requirements and identify any problems that may halt the registration process.</p>
+            <p>For further information, the reader is suggested to refer to the official IATF website at the following URL: <a href="http://www.iatfglobaloversight.org" target="_blank">www.iatfglobaloversight.org</a>.</p>
+        </section>
+    </main>
+
+</body>
+</html>
