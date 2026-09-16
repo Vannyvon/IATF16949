@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IATF 16949:2016 — ស្តង់ដារប្រព័ន្ធគ្រប់គ្រងគុណភាពឧស្សាហកម្មយានយន្ត</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161c17;
+    --steel:#233b47;
+    --steel-2:#2f4d5c;
+    --line:#d8d3c4;
+    --paper:#f4f1e8;
+    --paper-2:#eae5d6;
+    --rivet:#c8481f;
+    --rivet-dim:#c8481f22;
+    --olive:#5c6b4f;
+    --white:#fffdf7;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans Khmer','Space Grotesk',sans-serif;
+    font-size:16px;
+    line-height:1.75;
+  }
+  .en{font-family:'Space Grotesk','Noto Sans Khmer',sans-serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* ===== Top identity strip ===== */
+  .plate{
+    background:var(--steel);
+    color:var(--white);
+    padding:28px 40px 26px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:6px solid var(--rivet);
+  }
+  .plate::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 26px);
+    pointer-events:none;
+  }
+  .plate-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:1;
+  }
+  .plate-code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    color:#ffb59a;
+    margin:0 0 10px;
+  }
+  .plate h1{
+    margin:0;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(28px,4vw,44px);
+    letter-spacing:-0.01em;
+    color:var(--white);
+  }
+  .plate h1 small{
+    display:block;
+    font-family:'Noto Sans Khmer',sans-serif;
+    font-weight:500;
+    font-size:0.44em;
+    color:#cfe0e6;
+    margin-top:6px;
+    letter-spacing:0;
+  }
+  .plate-meta{
+    text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:#a9c2ca;
+    line-height:1.9;
+    min-width:180px;
+  }
+  .plate-meta span{color:#ffb59a;}
+
+  /* ===== Layout ===== */
+  .frame{
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:0;
+    align-items:start;
+  }
+
+  /* ===== Sidebar ===== */
+  nav.toc{
+    position:sticky;
+    top:0;
+    max-height:100vh;
+    overflow-y:auto;
+    padding:34px 18px 60px 40px;
+    border-right:1px solid var(--line);
+  }
+  .toc-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--olive);
+    margin:0 0 14px;
+  }
+  .toc-list{list-style:none;margin:0;padding:0;}
+  .toc-list li{margin-bottom:2px;}
+  .toc-list a{
+    display:flex;
+    gap:10px;
+    align-items:baseline;
+    text-decoration:none;
+    color:var(--steel);
+    font-size:14.5px;
+    padding:7px 8px;
+    border-radius:3px;
+    border-left:2px solid transparent;
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  .toc-list a .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--rivet);
+    flex:0 0 auto;
+  }
+  .toc-list a:hover{background:var(--paper-2);}
+  .toc-list a.active{
+    background:var(--white);
+    border-left-color:var(--rivet);
+    color:var(--ink);
+    font-weight:600;
+    box-shadow:inset 0 0 0 1px var(--line);
+  }
+  .toc-foot{
+    margin-top:26px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:#7c7663;
+    font-family:'IBM Plex Mono',monospace;
+    line-height:1.8;
+  }
+
+  /* ===== Main content ===== */
+  main{
+    padding:44px 40px 100px 44px;
+    min-width:0;
+  }
+
+  .intro{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px 30px;
+    margin-bottom:44px;
+    position:relative;
+  }
+  .intro::before{
+    content:"";
+    position:absolute;
+    left:0;top:16px;bottom:16px;
+    width:4px;
+    background:var(--rivet);
+    border-radius:2px;
+  }
+  .intro p{margin:0 0 12px;font-size:16px;}
+  .intro p:last-child{margin-bottom:0;}
+  .pdca{
+    display:flex;
+    gap:8px;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+  .pdca span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    padding:5px 11px;
+    border-radius:20px;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    color:var(--steel-2);
+  }
+
+  section.clause{
+    margin-bottom:56px;
+    scroll-margin-top:24px;
+  }
+  .clause-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:10px;
+    margin-bottom:20px;
+  }
+  .clause-head .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--rivet);
+    background:var(--rivet-dim);
+    padding:3px 9px;
+    border-radius:3px;
+    white-space:nowrap;
+  }
+  .clause-head h2{
+    margin:0;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:23px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .clause-head h2 .km{
+    font-family:'Noto Sans Khmer',sans-serif;
+    font-weight:500;
+    color:var(--steel-2);
+    font-size:0.78em;
+  }
+  .clause-lede{
+    color:var(--steel-2);
+    font-size:15.5px;
+    margin:-4px 0 22px;
+  }
+
+  h3.sub{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:16.5px;
+    color:var(--steel);
+    margin:26px 0 10px;
+    padding-left:12px;
+    border-left:3px solid var(--olive);
+  }
+  section.clause > p.quote{
+    background:var(--paper-2);
+    border-radius:4px;
+    padding:14px 18px;
+    font-size:15px;
+    color:var(--steel-2);
+    margin:0 0 18px;
+  }
+
+  ul.req{
+    list-style:none;
+    margin:0 0 6px;
+    padding:0;
+  }
+  ul.req > li{
+    position:relative;
+    padding:9px 0 9px 22px;
+    border-bottom:1px solid var(--line);
+    font-size:15px;
+  }
+  ul.req > li:last-child{border-bottom:none;}
+  ul.req > li::before{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:16px;
+    width:7px;height:7px;
+    background:var(--rivet);
+    border-radius:1px;
+    transform:rotate(45deg);
+  }
+  ul.req strong{color:var(--ink);}
+
+  ul.sub-list{
+    list-style:none;
+    margin:8px 0 0;
+    padding:0 0 0 6px;
+  }
+  ul.sub-list li{
+    position:relative;
+    padding:5px 0 5px 18px;
+    font-size:14.5px;
+    color:#3a3a34;
+  }
+  ul.sub-list li::before{
+    content:"–";
+    position:absolute;
+    left:0;
+    color:var(--olive);
+  }
+  ul.sub-list em{color:var(--steel-2);font-style:normal;font-weight:500;}
+
+  .callout{
+    margin:16px 0;
+    border:1px solid var(--rivet);
+    border-radius:4px;
+    padding:16px 18px;
+    background:#fff8f4;
+  }
+  .callout .flag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--rivet);
+    margin:0 0 8px;
+  }
+
+  /* data table */
+  .datatable{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 8px;
+    font-size:14.5px;
+  }
+  .datatable th{
+    text-align:left;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    color:var(--white);
+    background:var(--steel);
+    padding:10px 14px;
+  }
+  .datatable td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  .datatable tr:nth-child(even) td{background:var(--paper-2);}
+  .datatable td.k{
+    font-weight:600;
+    color:var(--steel);
+    white-space:nowrap;
+    width:230px;
+  }
+
+  .subsection{margin-bottom:6px;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 40px 40px 44px;
+    color:#7c7663;
+    font-size:13px;
+    font-family:'IBM Plex Mono',monospace;
+    grid-column:2;
+  }
+
+  @media (max-width:860px){
+    .frame{grid-template-columns:1fr;}
+    nav.toc{
+      position:relative;
+      max-height:none;
+      border-right:none;
+      border-bottom:1px solid var(--line);
+      padding:24px 20px;
+    }
+    main{padding:32px 20px 80px;}
+    footer{grid-column:1;padding:22px 20px 36px;}
+    .plate{padding:22px 20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="plate">
+  <div class="plate-inner">
+    <div>
+      <p class="plate-code">AUTOMOTIVE QMS · REFERENCE SHEET</p>
+      <h1>IATF 16949:2016<small>ស្តង់ដារប្រព័ន្ធគ្រប់គ្រងគុណភាពសម្រាប់ឧស្សាហកម្មយានយន្ត</small></h1>
+    </div>
+    <div class="plate-meta">
+      BASE STANDARD <span>ISO 9001:2015</span><br>
+      CLAUSES <span>4 — 10</span><br>
+      CYCLE <span>PLAN · DO · CHECK · ACT</span>
+    </div>
+  </div>
+</div>
+
+<div class="frame">
+  <nav class="toc">
+    <p class="toc-label">មាតិកា / CLAUSES</p>
+    <ul class="toc-list">
+      <li><a href="#c4"><span class="num mono">04</span>Context of the Organization</a></li>
+      <li><a href="#c5"><span class="num mono">05</span>Leadership</a></li>
+      <li><a href="#c6"><span class="num mono">06</span>Planning</a></li>
+      <li><a href="#c7"><span class="num mono">07</span>Support</a></li>
+      <li><a href="#c8"><span class="num mono">08</span>Operation</a></li>
+      <li><a href="#c9"><span class="num mono">09</span>Performance Evaluation</a></li>
+      <li><a href="#c10"><span class="num mono">10</span>Improvement</a></li>
+    </ul>
+    <div class="toc-foot">
+      ស្តង់ដារនេះកសាងលើ<br>ISO 9001:2015 ដោយបន្ថែម<br>Supplemental Requirements<br>ជាក់លាក់សម្រាប់ Automotive
+    </div>
+  </nav>
+
+  <main>
+    <div class="intro">
+      <p>ស្តង់ដារ <strong class="en">IATF 16949:2016</strong> គឺជាស្តង់ដារប្រព័ន្ធគ្រប់គ្រងគុណភាពសម្រាប់ឧស្សាហកម្មយានយន្ត (Automotive Quality Management System) ដែលផ្អែកលើ ISO 9001:2015 ដោយបន្ថែមលក្ខខណ្ឌតម្រូវជាក់លាក់ (Supplemental Requirements)។</p>
+      <p>រចនាសម្ព័ន្ធ requirement មាន ៧ ជំពូកចម្បង (Clause 4 ដល់ Clause 10) ដើរតាមវដ្ត PDCA (Plan-Do-Check-Act)៖</p>
+      <div class="pdca">
+        <span>PLAN — Clause 4, 5, 6</span>
+        <span>DO — Clause 7, 8</span>
+        <span>CHECK — Clause 9</span>
+        <span>ACT — Clause 10</span>
+      </div>
+    </div>
+
+    <!-- CLAUSE 4 -->
+    <section class="clause" id="c4">
+      <div class="clause-head">
+        <span class="tag mono">04</span>
+        <h2>Context of the Organization <span class="km">— បរិបទនៃអង្គភាព</span></h2>
+      </div>
+      <p class="clause-lede">ជំពូកនេះតម្រូវឱ្យក្រុមហ៊ុនយល់ដឹងពីបរិស្ថានជុំវិញខ្លួន មុននឹងរៀបចំ ឬកែលម្អប្រព័ន្ធគ្រប់គ្រងគុណភាព (QMS)។</p>
+
+      <h3 class="sub">4.1 — Understanding the organization and its context</h3>
+      <p>ក្រុមហ៊ុនត្រូវតែកំណត់កត្តាផលប៉ះពាល់ខាងក្នុង (Internal Issues) និងខាងក្រៅ (External Issues) ដែលអាចជះឥទ្ធិពលដល់គោលដៅគុណភាព និងយុទ្ធសាស្ត្រអាជីវកម្ម។</p>
+      <ul class="sub-list">
+        <li><em>កត្តាខាងក្រៅ៖</em> ច្បាប់បរិស្ថាន, បច្ចេកវិទ្យាថ្មីៗ, ការប្រែប្រួលទីផ្សារ, តម្រូវការអតិថិជន។</li>
+        <li><em>កត្តាខាងក្នុង៖</em> សមត្ថភាពបុគ្គលិក, វប្បធម៌អង្គភាព, គ្រឿងចក្រ/បច្ចេកវិទ្យាដែលមាន។</li>
+        <li>ជាទូទៅត្រូវប្រើប្រាស់ឧបករណ៍ <span class="en">SWOT Analysis</span> ឬ <span class="en">PESTLE Analysis</span> ដើម្បីចងក្រងជាឯកសារ។</li>
+      </ul>
+
+      <h3 class="sub">4.2 — Understanding the needs and expectations of interested parties</h3>
+      <p>ស្វែងយល់ និងកំណត់ថា "អ្នកណាខ្លះជាអ្នកពាក់ព័ន្ធ?" និង "តើពួកគេត្រូវការអ្វីពីយើង?"។</p>
+      <ul class="sub-list">
+        <li><em>អតិថិជន (OEMs/Tier 1)៖</em> ត្រូវការផលិតផលមានគុណភាព, ថ្លៃដើមសមរម្យ, ដឹកជញ្ជូនទាន់ពេល (OTD)។</li>
+        <li><em>អាជ្ញាធរ/រដ្ឋាភិបាល៖</em> ត្រូវការការគោរពច្បាប់សុវត្ថិភាព និងបរិស្ថាន។</li>
+        <li><em>បុគ្គលិក៖</em> ត្រូវការប្រាក់បៀវត្សរ៍សមរម្យ និងបរិស្ថានការងារប្រកបដោយសុវត្ថិភាព។</li>
+        <li><em>អ្នកផ្គត់ផ្គង់ (Suppliers)៖</em> ត្រូវការការបញ្ជាទិញទៀងទាត់ និងការទូទាត់ប្រាក់ទាន់ពេល។</li>
+      </ul>
+
+      <h3 class="sub">4.3 — Determining the scope of the QMS</h3>
+      <p>កំណត់ព្រំដែននៃការអនុវត្ត QMS ថាគ្របដណ្តប់លើទីតាំងណាខ្លះ, ផលិតផលអ្វីខ្លះ និង Process ណាខ្លះ។</p>
+      <ul class="req">
+        <li><strong>4.3.1 Scope — supplemental៖</strong> ត្រូវរាប់បញ្ចូលទាំងទីតាំងគាំទ្រ (Supporting functions) ទោះបីជានៅក្រៅរោងចក្រក៏ដោយ (ឧ. ការិយាល័យ Design ឬផ្នែកបញ្ជាទិញ)។</li>
+        <li><strong>4.3.2 Customer-specific requirements (CSRs)៖</strong> ត្រូវវាយតម្លៃ និងរាប់បញ្ចូលរាល់ CSRs (ដូចជា Ford, Toyota, VW) ចូលទៅក្នុង Scope នៃ QMS ដោយគ្មានការរំលងឡើយ។</li>
+      </ul>
+
+      <h3 class="sub">4.4 — Quality management system and its processes</h3>
+      <ul class="req">
+        <li><strong>4.4.1៖</strong> ត្រូវបង្កើត អនុវត្ត រក្សាទុក និងកែលម្អ QMS ដោយកំណត់ Process, Inputs, Outputs, KPIs និងធនធានដែលត្រូវការ។</li>
+        <li><strong>4.4.1.1 Conformance of products and processes៖</strong> ធានាថាផលិតផល និង Process (រួមទាំងបំណែកភាគទិញពីខាងក្រៅ) អនុលោមតាមតម្រូវការបច្ចេកទេស និងច្បាប់។</li>
+      </ul>
+      <div class="callout">
+        <p class="flag">4.4.1.2 · PRODUCT SAFETY — ចំណុចសំខាន់ខ្លាំង</p>
+        <p style="margin:0 0 8px;">ក្រុមហ៊ុនត្រូវតែមាន Documented Process សម្រាប់គ្រប់គ្រងផលិតផលដែលពាក់ព័ន្ធនឹងសុវត្ថិភាព (Safety-related products)។</p>
+        <p style="margin:0;">ត្រូវមាន៖ ការកំណត់ Special Characteristics, ការធ្វើ FMEA សម្រាប់សុវត្ថិភាព, ផែនការឆ្លើយតបបន្ទាន់ (Reaction Plans), ការបណ្តុះបណ្តាលពិសេស, និងការតាមដាន Traceability។</p>
+      </div>
+      <ul class="req">
+        <li><strong>4.4.2៖</strong> ត្រូវរក្សាទុកឯកសារ (Documented Information) ដើម្បីបញ្ជាក់ថា Process ត្រូវបានប្រតិបត្តិការតាមផែនការ។</li>
+      </ul>
+    </section>
+
+    <!-- CLAUSE 5 -->
+    <section class="clause" id="c5">
+      <div class="clause-head">
+        <span class="tag mono">05</span>
+        <h2>Leadership <span class="km">— ភាពជាអ្នកដឹកនាំ</span></h2>
+      </div>
+      <p class="clause-lede">ការប្តេជ្ញាចិត្តរបស់ថ្នាក់ដឹកនាំកំពូល (Top Management) ក្នុងការរុញច្រានប្រព័ន្ធគុណភាព។</p>
+
+      <h3 class="sub">5.1 — Leadership and commitment</h3>
+      <ul class="req">
+        <li><strong>5.1.1 General៖</strong> ទទួលខុសត្រូវផ្ទាល់លើប្រសិទ្ធភាពនៃ QMS, ធានាថា Quality Policy និង Objectives ស្របនឹងទិសដៅយុទ្ធសាស្ត្រ, ផ្តល់ធនធានគ្រប់គ្រាន់ និងជំរុញ Continual Improvement។</li>
+        <li><strong>5.1.1.1 Corporate responsibility៖</strong> ត្រូវមាន Anti-bribery policy (ប្រឆាំងសូកប៉ាន់), Code of conduct (ក្រមសីលធម៌), និង Whistleblowing policy (ការរាយការណ៍ពីអំពើពុករលួយ)។</li>
+        <li><strong>5.1.1.2 Process effectiveness and efficiency៖</strong> តាមដានទាំង Effectiveness (សម្រេចតាម KPI) និង Efficiency (ការប្រើប្រាស់ធនធាន/ថ្លៃដើម) នៃ Process នីមួយៗ។</li>
+        <li><strong>5.1.1.3 Process owners៖</strong> ត្រូវចាត់តាំង "ម្ចាស់ដំណើរការ" ឱ្យច្បាស់លាស់សម្រាប់ Process នីមួយៗ (ឧ. Purchasing Manager ជា Process Owner នៃផ្នែកបញ្ជាទិញ)។</li>
+        <li><strong>5.1.2 Customer focus៖</strong> ធានាថាតម្រូវការអតិថិជន និងលក្ខខណ្ឌច្បាប់ត្រូវបំពេញពេញលេញ ដើម្បីបង្កើន Customer Satisfaction។</li>
+      </ul>
+
+      <h3 class="sub">5.2 — Policy</h3>
+      <ul class="req">
+        <li><strong>5.2.1 Developing the quality policy៖</strong> រៀបចំគោលនយោបាយគុណភាពដែលសមស្របនឹងបរិបទក្រុមហ៊ុន និងគាំទ្រទិសដៅយុទ្ធសាស្ត្រ។</li>
+        <li><strong>5.2.2 Communicating the quality policy៖</strong> ត្រូវចងក្រងជាឯកសារ, ផ្សព្វផ្សាយ និងយល់ដឹងគ្រប់ជាន់ថ្នាក់ រហូតដល់អាចចែករំលែកទៅសាធារណៈជន/អតិថិជនបាន។</li>
+      </ul>
+
+      <h3 class="sub">5.3 — Organizational roles, responsibilities, and authorities</h3>
+      <ul class="req">
+        <li><strong>5.3.1 Supplemental៖</strong> កំណត់តួនាទី និងសិទ្ធិអំណាចច្បាស់លាស់ចំពោះបុគ្គលិកមានឥទ្ធិពលលើគុណភាព (ឧ. ផ្នែក Design, Specification)។</li>
+      </ul>
+      <div class="callout">
+        <p class="flag">5.3.2 · STOP PRODUCTION AUTHORITY</p>
+        <p style="margin:0;">បុគ្គលិកទទួលខុសត្រូវលើគុណភាព ត្រូវតែមានសិទ្ធិអំណាចពេញលេញក្នុងការបញ្ឈប់ខ្សែសង្វាក់ផលិតកម្ម (Stop Line) ភ្លាមៗ នៅពេលរកឃើញផលិតផល NG ឬមានហានិភ័យគុណភាព ដោយមិនបាច់រង់ចាំការអនុញ្ញាតពីថ្នាក់លើ ហើយត្រូវរាយការណ៍ជូនថ្នាក់ដឹកនាំជាប្រញាប់ដើម្បីអនុវត្ត Corrective Action។</p>
+      </div>
+    </section>
+
+    <!-- CLAUSE 6 -->
+    <section class="clause" id="c6">
+      <div class="clause-head">
+        <span class="tag mono">06</span>
+        <h2>Planning <span class="km">— ការរៀបចំផែនការ</span></h2>
+      </div>
+      <p class="clause-lede">ការគ្រប់គ្រងហានិភ័យ និងការកំណត់គោលដៅ។</p>
+
+      <h3 class="sub">6.1 — Actions to address risks and opportunities</h3>
+      <ul class="req">
+        <li><strong>6.1.1 & 6.1.2 Risk Analysis & Actions៖</strong> វិភាគ Risks និង Opportunities ដែលបានមកពីបរិបទអង្គភាព (Clause 4) ហើយរៀបចំផែនការសកម្មភាពដើម្បីបង្ការ ឬកាត់បន្ថយផលប៉ះពាល់អវិជ្ជមាន។</li>
+        <li><strong>6.1.2.1 Preventive action៖</strong> ត្រូវមានដំណើរការកំណត់ និងលុបបំបាត់មូលហេតុនៃកំហុសដែលមានសក្ដានុពល (Potential Non-conformities)។</li>
+      </ul>
+      <div class="callout">
+        <p class="flag">6.1.2.2 · CONTINGENCY PLANS</p>
+        <p style="margin:0;">ត្រូវរៀបចំផែនការសង្គ្រោះបន្ទាន់សម្រាប់ករណីគ្រោះអាសន្ន (ភ្លើងដាច់, កង្វះទឹក, ម៉ាស៊ីនខូចធ្ងន់ធ្ងរ, បញ្ហារំខានក្នុង Supply Chain, កង្វះពលកម្ម ឬការវាយប្រហារលើប្រព័ន្ធ IT) ដើម្បីធានាថាការប្រគល់ទំនិញមិនត្រូវរអាក់រអួល។ ផែនការនេះត្រូវពិនិត្យ និងធ្វើតេស្តជាទៀងទាត់។</p>
+      </div>
+
+      <h3 class="sub">6.2 — Quality objectives and planning to achieve them</h3>
+      <ul class="req">
+        <li><strong>6.2.1 & 6.2.2៖</strong> KPIs ត្រូវតែវាស់វែងបាន, សុីគ្នានឹងគោលនយោបាយគុណភាព, និងឆ្លុះបញ្ចាំងពីតម្រូវការអតិថិជន។</li>
+        <li><strong>6.2.2.1 Supplemental៖</strong> ថ្នាក់ដឹកនាំត្រូវធានាថាគោលដៅគុណភាពត្រូវបានប្រកាសប្រើប្រាស់នៅគ្រប់កម្រិត និង Function ពាក់ព័ន្ធ (Scrap Rate, PPM, OTD)។</li>
+      </ul>
+
+      <h3 class="sub">6.3 — Planning of changes</h3>
+      <p>រាល់ការផ្លាស់ប្តូរក្នុងប្រព័ន្ធ QMS (ខ្សែសង្វាក់ផលិតកម្ម, បច្ចេកវិទ្យា, ឬដំណើរការ) ត្រូវតែធ្វើឡើងតាមផែនការ មានការវាយតម្លៃផលប៉ះពាល់ និងការបែងចែកធនធានឱ្យបានត្រឹមត្រូវមុននឹងអនុវត្ត។</p>
+    </section>
+
+    <!-- CLAUSE 7 -->
+    <section class="clause" id="c7">
+      <div class="clause-head">
+        <span class="tag mono">07</span>
+        <h2>Support <span class="km">— ការគាំទ្រ</span></h2>
+      </div>
+      <p class="clause-lede">ការផ្តល់ធនធានចាំបាច់ដើម្បីដំណើរការ QMS។</p>
+
+      <h3 class="sub">7.1 — Resources</h3>
+      <ul class="req">
+        <li><strong>7.1.1 & 7.1.2៖</strong> ផ្តល់ធនធានមនុស្ស និងធនធានភស្តុភារគ្រប់គ្រាន់។</li>
+        <li><strong>7.1.3 Infrastructure៖</strong> គ្រប់គ្រងរោងចក្រ ឧបករណ៍ និងមធ្យោបាយធ្វើដំណើរ។ <em style="font-style:normal;color:var(--steel-2);">7.1.3.1</em> ប្រើប្រាស់វិធីសាស្ត្រ Multidisciplinary (ដូចជា APQP) ក្នុងការរៀបចំ Layout រោងចក្រ ដើម្បីកាត់បន្ថយការផ្លាស់ទីសម្ភារ និងសម្រួល Material Flow។</li>
+        <li><strong>7.1.4 Environment for the operation of processes៖</strong> គ្រប់គ្រងសីតុណ្ហភាព, សំណើម, ពន្លឺ, ភាពស្អាត ឱ្យសមស្របតាមផលិតផល។ <em style="font-style:normal;color:var(--steel-2);">7.1.4.1</em> រក្សាភាពស្អាតបាតតាមគោលការណ៍ 5S។</li>
+        <li><strong>7.1.5 Monitoring and measuring resources៖</strong> ត្រូវធ្វើការសិក្សា MSA (Gage R&R, Bias, Linearity) លើឧបករណ៍វាស់វែងក្នុង Control Plan; ឧបករណ៍ត្រូវធ្វើ Calibration/Verification ជាទៀងទាត់ និងមាន Traceability ទៅកាន់ស្តង់ដារជាតិ/អន្តរជាតិ (NIST/ISO)។</li>
+        <li><strong>7.1.5.3 Laboratory requirements៖</strong> មន្ទីរពិសោធន៍ក្នុងស្រុកត្រូវមាន Scope ច្បាស់លាស់ និងបុគ្គលិកមានជំនាញ; មន្ទីរពិសោធន៍ខាងក្រៅត្រូវទទួលការទទួលស្គាល់ផ្លូវការ ISO/IEC 17025 (ឬសមមូល)។</li>
+        <li><strong>7.1.6 Organizational knowledge៖</strong> រក្សា និងចែករំលែកចំណេះដឹងក្នុងអង្គភាព ដើម្បីការពារកុំឱ្យបាត់បង់ Know-how នៅពេលបុគ្គលិកផ្លាស់ប្តូរ។</li>
+      </ul>
+
+      <h3 class="sub">7.2 — Competence</h3>
+      <ul class="req">
+        <li><strong>7.2.1 General៖</strong> កំណត់សមត្ថភាពចាំបាច់ និងផ្តល់ការបណ្តុះបណ្តាលដល់បុគ្គលិកដែលធ្វើការប៉ះពាល់ដល់គុណភាព។</li>
+        <li><strong>7.2.2 On-the-job training៖</strong> ផ្តល់ការបណ្តុះបណ្តាលផ្ទាល់នៅកន្លែងធ្វើការសម្រាប់ការងារប៉ះពាល់ Quality Requirements, CSRs, និង Product Safety។</li>
+        <li><strong>7.2.3 Internal auditor competency៖</strong> ពិនិត្យសមត្ថភាពអ្នកធ្វើ Audit ផ្ទៃក្នុងលើ QMS, Process Audit (ឧ. VDA 6.3), Product Audit, និង Core Tools (APQP, FMEA, MSA, SPC, PPAP)។</li>
+        <li><strong>7.2.4 Second-party auditor competency៖</strong> កំណត់សមត្ថភាពអ្នកធ្វើ Audit លើ Supplier។</li>
+      </ul>
+
+      <h3 class="sub">7.3 — Awareness</h3>
+      <p>បុគ្គលិកទាំងអស់ត្រូវយល់ដឹងពីគោលនយោបាយគុណភាព, គោលដៅ KPI, ការរួមចំណែករបស់ពួកគេ និងផលប៉ះពាល់អវិជ្ជមាននៃកំហុសការងារមកលើ Quality & Product Safety។ <em style="font-style:normal;color:var(--steel-2);">7.3.1 & 7.3.2</em> — បង្កើតកម្មវិធីលើកទឹកចិត្តបុគ្គលិក និងជំរុញការចូលរួមផ្តល់គំនិតកែលម្អ។</p>
+
+      <h3 class="sub">7.4 — Communication</h3>
+      <p>កំណត់ច្បាស់លាស់អំពីអ្វីដែលត្រូវទំនាក់ទំនង, ពេលណាត្រូវទាក់ទង, ជាមួយនរណា, និងតាមរបៀបណា (ទាំងខាងក្នុង និងខាងក្រៅអង្គភាព)។</p>
+
+      <h3 class="sub">7.5 — Documented information</h3>
+      <ul class="req">
+        <li><strong>7.5.1 & 7.5.2៖</strong> រៀបចំប្រព័ន្ធគ្រប់គ្រងឯកសារ (Quality Manual, SOPs, Work Instructions) ឱ្យមានទម្រង់ត្រឹមត្រូវ និងមានការអនុម័តមុនប្រើប្រាស់ ស្របតាម IATF 16949 និង CSRs។</li>
+        <li><strong>7.5.3 Control of documented information៖</strong> គ្រប់គ្រងការចែកចាយ, ការចូលប្រើ, ការរក្សាទុក និងការកម្ទេចឯកសារចាស់ៗចោល។</li>
+        <li><strong>7.5.3.2.1 Record retention៖</strong> កំណត់រយៈពេលរក្សាទុកកំណត់ត្រាឱ្យស្របតាមតម្រូវការច្បាប់ និងអតិថិជន (កំណត់ត្រាទាក់ទង Product Safety និង PPAP ជាទូទៅត្រូវរក្សាទុកយ៉ាងហោចណាស់ពេញមួយវដ្តជីវិតផលិតផល + ១ ឆ្នាំ)។</li>
+        <li><strong>7.5.3.2.2 Engineering specifications៖</strong> ត្រូវមាន process ពិនិត្យ និងអនុវត្តរាល់ Engineering changes ឱ្យទាន់ពេលវេលា (ជាទូទៅមិនឱ្យលើសពី ១០ ថ្ងៃធ្វើការ)។</li>
+      </ul>
+    </section>
+
+    <!-- CLAUSE 8 -->
+    <section class="clause" id="c8">
+      <div class="clause-head">
+        <span class="tag mono">08</span>
+        <h2>Operation <span class="km">— ប្រតិបត្តិការផលិតកម្ម</span></h2>
+      </div>
+      <p class="clause-lede">ជំពូកធំជាងគេដែលគ្រប់គ្រងដំណើរការផលិតទាំងស្រុង។</p>
+
+      <table class="datatable">
+        <tr><th>Sub-clause</th><th>លក្ខខណ្ឌតម្រូវសំខាន់ៗ</th></tr>
+        <tr><td class="k">8.1 Operational planning</td><td>ការរៀបចំផែនការផលិត និងការរក្សាការសម្ងាត់ (Confidentiality)</td></tr>
+        <tr><td class="k">8.2 Requirements for products</td><td>ការពិនិត្យតម្រូវការអតិថិជន និងការវាយតម្លៃលទ្ធភាពនៃការផលិត (Manufacturing Feasibility)</td></tr>
+        <tr><td class="k">8.3 Design and development</td><td>ការរៀបចំ APQP, ការគ្រប់គ្រង Prototype, និងដំណើរការអនុម័តបំណែកភាគ (PPAP)</td></tr>
+        <tr><td class="k">8.4 External provided processes</td><td>ការជ្រើសរើស និងវាយតម្លៃ Supplier, ការធ្វើ Audit Supplier, និងការគ្រប់គ្រងបន្ទាយផ្គត់ផ្គង់</td></tr>
+        <tr><td class="k">8.5 Production and service provision</td><td>ការបង្កើត Control Plan, Standardized Work Instructions, Job Set-up Verification, Traceability, និង Change Control</td></tr>
+        <tr><td class="k">8.6 Release of products</td><td>ការត្រួតពិនិត្យគុណភាពចុងក្រោយមុនប្រគល់ឱ្យអតិថិជន</td></tr>
+        <tr><td class="k">8.7 Control of nonconforming outputs</td><td>ការគ្រប់គ្រងទំនិញខូច (NG), ការសុំ Concession, និងដំណើរការ Rework/Repair</td></tr>
+      </table>
+
+      <h3 class="sub">8.1 — Operational planning and control</h3>
+      <ul class="req">
+        <li><strong>8.1.1 Supplemental៖</strong> តម្រូវឱ្យរៀបចំផែនការផលិតផល រួមមាន CSRs, គោលដៅគុណភាព, ធនធាន, Acceptance Criteria, និងកំណត់ត្រាផ្សេងៗ។</li>
+        <li><strong>8.1.2 Confidentiality៖</strong> ត្រូវធានាការរក្សាការសម្ងាត់លើព័ត៌មាន និងគម្រោងរបស់អតិថិជន (Design/Product details)។</li>
+      </ul>
+
+      <h3 class="sub">8.2 — Requirements for products and services</h3>
+      <ul class="req">
+        <li><strong>8.2.1 Customer communication៖</strong> ការទាក់ទងជាមួយអតិថិជនអំពីព័ត៌មានផលិតផល ការផ្លាស់ប្តូរ កិច្ចសន្យា និងទិន្នន័យ Feedback/CAD data។</li>
+        <li><strong>8.2.2៖</strong> ការកំណត់តម្រូវការផ្លូវច្បាប់ (Regulatory/Statutory) និងតម្រូវការបន្ថែមពីអតិថិជន។ <em style="font-style:normal;color:var(--steel-2);">8.2.2.1</em> Special characteristics — កំណត់លក្ខណៈពិសេសដែលប៉ះពាល់ដល់សុវត្ថិភាព ឬមុខងារ។</li>
+        <li><strong>8.2.3 Review of requirements៖</strong> ការពិនិត្យថារោងចក្រមានសមត្ថភាពបំពេញតម្រូវការអតិថិជនមុនទទួលការបញ្ជាទិញ, រួមទាំង CSRs (8.2.3.1.2) និង Manufacturing Feasibility Study (8.2.3.1.3)។</li>
+        <li><strong>8.2.4 Changes to requirements៖</strong> ការគ្រប់គ្រង និងធ្វើបច្ចុប្បន្នភាពឯកសារនៅពេលមានការផ្លាស់ប្តូរតម្រូវការពីអតិថិជន។</li>
+      </ul>
+
+      <h3 class="sub">8.3 — Design and development of products and services</h3>
+      <ul class="req">
+        <li><strong>8.3.1 General៖</strong> ការបង្កើត និងថែទាំដំណើរការ Design & Development (Product design និង Manufacturing process design)។</li>
+        <li><strong>8.3.2 Planning៖</strong> ប្រើប្រាស់ APQP (Advanced Product Quality Planning) ឬប្រព័ន្ធស្រដៀងគ្នា, ជាមួយក្រុមការងារពហុជំនាញ (8.3.2.1)។</li>
+        <li><strong>8.3.3 Design inputs៖</strong> Product design input (តម្រូវការបច្ចេកទេស, សុវត្ថិភាព, Packaging), Manufacturing process design input (PFMEA, Layout, Cp/Cpk), និង Special characteristics។</li>
+        <li><strong>8.3.4 Design controls៖</strong> Design Reviews, Verification, Validation; ការគ្រប់គ្រង Prototype (8.3.4.3); ការធ្វើ PPAP ដើម្បីសុំការអនុម័តពីអតិថិជនមុន Mass production (8.3.4.4)។</li>
+        <li><strong>8.3.5 Design outputs៖</strong> DFMEA, ប្លង់ Drawing, Specification, PFMEA, Control Plan, Standard Work Instructions។</li>
+        <li><strong>8.3.6 Design changes៖</strong> ការគ្រប់គ្រង ECN (Engineering Change Notice) ដោយត្រូវវាយតម្លៃផលប៉ះពាល់ និងសុំការអនុម័តពីអតិថិជនមុនអនុវត្ត។</li>
+      </ul>
+
+      <h3 class="sub">8.4 — Control of externally provided processes (Purchasing / Supplier)</h3>
+      <ul class="req">
+        <li><strong>8.4.1 General៖</strong> ការគ្រប់គ្រង Suppliers ដើម្បីធានាគុណភាពគ្រឿងបន្លាស់/សេវាកម្ម; Supplier selection process (8.4.1.2) ផ្អែកលើ Risk, សមត្ថភាព, QMS, និងហិរញ្ញវត្ថុ; Customer-directed sources / Directed Buy (8.4.1.3)។</li>
+        <li><strong>8.4.2 Type and extent of control៖</strong> កំណត់កម្រិតគ្រប់គ្រងតាម Risk; ជំរុញ Supplier អភិវឌ្ឍពី ISO 9001 ដល់ IATF 16949 (8.4.2.3); Supplier monitoring លើ PPM, OTD, Premium Freight, Field returns (8.4.2.4); Supplier audit (8.4.2.5)។</li>
+        <li><strong>8.4.3 Information for external providers៖</strong> ការផ្តល់ PO, Drawing, Specification, Quality requirements ច្បាស់លាស់ទៅ Supplier។</li>
+      </ul>
+
+      <h3 class="sub">8.5 — Production and service provision</h3>
+      <ul class="req">
+        <li><strong>8.5.1.1 Control plan៖</strong> Pre-launch & Production Control Plan បញ្ជាក់ចំណុចត្រូវត្រួតពិនិត្យ, ឧបករណ៍, Sample, និង Reaction Plan។</li>
+        <li><strong>8.5.1.2 Standardised work៖</strong> SOP / Work Instruction ដែលមើលឃើញច្បាស់នៅ Workstation។</li>
+        <li><strong>8.5.1.3 & 8.5.1.4៖</strong> First-off inspection ពេល Changeover, និងការត្រួតពិនិត្យឡើងវិញបន្ទាប់ពីការឈប់ផលិតមួយរយៈពេល។</li>
+        <li><strong>8.5.1.5 TPM៖</strong> ប្រព័ន្ធថែទាំម៉ាស៊ីនបង្ការ (Preventive & Predictive maintenance) និងការគ្រប់គ្រង Spare parts។</li>
+        <li><strong>8.5.1.6 & 8.5.1.7៖</strong> ការគ្រប់គ្រងពុម្ព/ឧបករណ៍ផលិត (Molds, Dies, Jigs, Fixtures), និងកាលវិភាគផលិត (Lean / JIT)។</li>
+        <li><strong>8.5.2 Identification and traceability៖</strong> ការដាក់ស្លាកសញ្ញាសម្គាល់ផលិតផលនៅគ្រប់ដំណាក់កាល, អាចដឹង Lot លេខ ថ្ងៃផលិត វត្ថុធាតុដើម និងម៉ាស៊ីនប្រើ។</li>
+        <li><strong>8.5.3 Property belonging to customers៖</strong> ការថែរក្សា និងការពារទ្រព្យសម្បត្តិអតិថិជន (ពុម្ព, ឧបករណ៍, កម្មសិទ្ធិបញ្ញា)។</li>
+        <li><strong>8.5.4 Preservation៖</strong> ការថែរក្សាផលិតផលមិនឱ្យខូចខាត ចាប់ពីទទួល ផលិត រហូតដល់ដឹកជញ្ជូន។</li>
+        <li><strong>8.5.5 Post-delivery activities៖</strong> ការគ្រប់គ្រងសេវាកម្មក្រោយប្រគល់ទំនិញ (Feedback, Warranty)។</li>
+        <li><strong>8.5.6 Control of changes៖</strong> ការគ្រប់គ្រង Process Changes ជាមួយ Validation និងការអនុម័តពីអតិថិជន; ការប្រើប្រាស់ Bypass / Alternate process controls បណ្តោះអាសន្ន (8.5.6.1.1) ត្រូវការវាយតម្លៃ Risk ច្បាស់លាស់។</li>
+      </ul>
+
+      <h3 class="sub">8.6 — Release of products and services</h3>
+      <p>ការផ្ទៀងផ្ទាត់ និងត្រួតពិនិត្យចុងក្រោយថាផលិតផលបានបំពេញតាមតម្រូវការទាំងអស់ មុននឹងអនុញ្ញាតឱ្យដឹកជញ្ជូនចេញ។</p>
+      <ul class="sub-list">
+        <li><em>8.6.2</em> Layout Inspection (វាស់ទំហំគ្រប់ចំណុចលើ Drawing) និង Functional Testing ពេញលេញតាមកាលវិភាគអតិថិជន។</li>
+        <li><em>8.6.3</em> Appearance items — សម្រាប់បំណែកភាគខាងក្រៅ (Interior/Exterior trim) ត្រូវមានបន្ទប់ពិនិត្យពន្លឺស្តង់ដារ និង Master samples។</li>
+      </ul>
+
+      <h3 class="sub">8.7 — Control of nonconforming outputs</h3>
+      <ul class="req">
+        <li><strong>8.7.1៖</strong> ការបែងចែក និងគ្រប់គ្រងទំនិញខូច (NG) មិនឱ្យច្រឡំយកទៅប្រើប្រាស់ ឬដឹកជញ្ជូន។</li>
+        <li><strong>8.7.1.1 Customer authorization for concession៖</strong> ការសុំការអនុម័ត (Concession/Deviation) ពីអតិថិជនជាមុន ប្រសិនបើចង់ប្រគល់ទំនិញខុសស្តង់ដារបន្តិចបន្តួច។</li>
+        <li><strong>8.7.1.4 & 8.7.1.5៖</strong> Rework ត្រូវការវាយតម្លៃ Risk (PFMEA), SOP, និង Re-inspect តាម Control Plan; Repair ត្រូវការការអនុម័តពីអតិថិជនមុន។</li>
+        <li><strong>8.7.1.7៖</strong> ការកម្ទេច/បោះចោលទំនិញខូចដែលមិនអាចប្រើប្រាស់បាន ដើម្បីការពារយកមកប្រើឡើងវិញដោយច្រឡំ។</li>
+      </ul>
+    </section>
+
+    <!-- CLAUSE 9 -->
+    <section class="clause" id="c9">
+      <div class="clause-head">
+        <span class="tag mono">09</span>
+        <h2>Performance Evaluation <span class="km">— ការវាយតម្លៃសមត្ថកិច្ច</span></h2>
+      </div>
+      <p class="clause-lede">ការតាមដាន និងវាស់វែងលទ្ធផលការងារ។</p>
+
+      <h3 class="sub">9.1 — Monitoring, measurement, analysis and evaluation</h3>
+      <ul class="req">
+        <li><strong>9.1.1 General៖</strong> ការកំណត់អ្វីដែលត្រូវវាស់ វិធីសាស្ត្រ និងពេលវេលាធ្វើការវិភាគ; Prioritization (9.1.1.2) ត្រូវផ្តល់អាទិភាពលើទិន្នន័យប៉ះពាល់សុវត្ថិភាព; ការអនុវត្ត SPC (9.1.1.3) — Variation, Control Charts, Stability។</li>
+        <li><strong>9.1.2 Customer satisfaction៖</strong> ការតាមដានតាម Customer Scorecards (PPM, Delivery On-Time, Customer Disruption, Field Returns, Premium Freight)។</li>
+        <li><strong>9.1.3 Analysis and evaluation៖</strong> វិភាគទិន្នន័យដើម្បីវាយតម្លៃភាពស្របគ្នានៃផលិតផល, Customer Satisfaction, Performance នៃ QMS, ប្រសិទ្ធភាព Risk, Performance របស់ Suppliers, និងតម្រូវការកែលម្អ។</li>
+      </ul>
+
+      <h3 class="sub">9.2 — Internal audit</h3>
+      <p>រោងចក្រត្រូវរៀបចំផែនការ និងធ្វើ Audit ផ្ទៃក្នុងជាទៀងទាត់លើ ៣ កម្រិត៖</p>
+      <ul class="req">
+        <li><strong>9.2.2.2 QMS audit៖</strong> ការធ្វើ Audit លើប្រព័ន្ធ QMS ទាំងមូល ថាតើស្របតាម IATF 16949 និងតម្រូវការក្រុមហ៊ុនដែរឬទេ។</li>
+        <li><strong>9.2.2.3 Manufacturing process audit៖</strong> ការធ្វើ Audit លើដំណើរការផលិត (ឧ. ស្តង់ដារ VDA 6.3) នៅគ្រប់វេន (Shifts) និងគ្រប់ Process។</li>
+        <li><strong>9.2.2.4 Product audit៖</strong> ការធ្វើ Audit លើផលិតផលសម្រេចមុនដឹកចេញ ឬក្នុងឃ្លាំង ដើម្បីផ្ទៀងផ្ទាត់ទំហំ មុខងារ និង Packaging។</li>
+      </ul>
+
+      <h3 class="sub">9.3 — Management review</h3>
+      <p>ថ្នាក់ដឹកនាំកំពូល (Top Management) ត្រូវជួបប្រជុំពិនិត្យឡើងវិញលើ QMS យ៉ាងហោចណាស់ <strong>១ ដងក្នុងមួយឆ្នាំ</strong> (ឬញឹកញាប់ជាងនេះតាម Risk)។</p>
+      <table class="datatable">
+        <tr><th>Management review inputs</th><th>Management review outputs</th></tr>
+        <tr>
+          <td>លទ្ធផល Audit (Internal, Customer, 3rd Party) · Customer Satisfaction & Scorecards (PPM, OTD) · Process performance & Product conformity (Scrap, Rework, Cpk) · 8D reports & Field Warranty · TPM results · Supplier performance · កង្វះខាតធនធាន និង Risk ថ្មីៗ</td>
+          <td>ការសម្រេចចិត្តលើការកែលម្អប្រព័ន្ធ និង Process · ការបែងចែកធនធានបន្ថែម (ថវិកា, ឧបករណ៍, មនុស្ស) · ការធ្វើបច្ចុប្បន្នភាព Action Plan និង Quality Objectives (KPIs)</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- CLAUSE 10 -->
+    <section class="clause" id="c10">
+      <div class="clause-head">
+        <span class="tag mono">10</span>
+        <h2>Improvement <span class="km">— ការកែលម្អ</span></h2>
+      </div>
+      <p class="clause-lede">ដំណាក់កាល Act នៃវដ្ត PDCA — ក្រុមហ៊ុនមិនត្រឹមតែដោះស្រាយបញ្ហាចំពោះមុខប៉ុណ្ណោះទេ ប៉ុន្តែត្រូវលុបបំបាត់ឫសគល់នៃបញ្ហា (Root Cause) និងកែលម្អប្រព័ន្ធជាប្រចាំ។</p>
+
+      <h3 class="sub">10.1 — General</h3>
+      <p>អង្គភាពត្រូវតែកំណត់ និងជ្រើសរើសឱកាសសម្រាប់ការកែលម្អ ព្រមទាំងអនុវត្តសកម្មភាពចាំបាច់ដើម្បី៖</p>
+      <ul class="sub-list">
+        <li>បំពេញតាមតម្រូវការអតិថិជន និងបង្កើនភាពស្កប់ស្កល់របស់អតិថិជន (Customer Satisfaction)។</li>
+        <li>កែលម្អផលិតផល និងសេវាកម្ម ព្រមទាំងការពារបញ្ហាប្រឈមនាពេលអនាគត។</li>
+        <li>កាត់បន្ថយផលប៉ះពាល់ដែលមិនចង់បាន (Unintended Effects) ក្នុងដំណើរការផលិត។</li>
+      </ul>
+
+      <h3 class="sub">10.2 — Nonconformity and corrective action</h3>
+      <p>នៅពេលមានបញ្ហា nonconformity (រួមទាំង Customer Complaint) អង្គភាពត្រូវ៖</p>
+      <ul class="req">
+        <li><strong>1. Containment Action៖</strong> ចាត់វិធានការបន្ទាន់ដើម្បីគ្រប់គ្រង និងកាត់ផ្តាច់ទំនិញខូច (Isolate/Contain)។</li>
+        <li><strong>2. Evaluate Root Cause៖</strong> វាយតម្លៃឫសគល់នៃបញ្ហា ដើម្បីកុំឱ្យកើតឡើងវិញ។</li>
+        <li><strong>3. Implement Corrective Action៖</strong> អនុវត្តសកម្មភាពកែប្រែ និងពិនិត្យ Effectiveness របស់វា។</li>
+        <li><strong>4. Update Documentation៖</strong> ធ្វើបច្ចុប្បន្នភាពលើ PFMEA, Control Plan, និង SOPs។</li>
+      </ul>
+
+      <h3 class="sub">10.2.3 — Problem solving</h3>
+      <p>IATF 16949 តម្រូវឱ្យមានដំណើរការដោះស្រាយបញ្ហាដែលមានរចនាសម្ព័ន្ធច្បាស់លាស់ ដូចជា <strong class="en">8D Methodology</strong>, <strong class="en">5-Why Analysis</strong>, ឬ <strong class="en">Fishbone Diagram</strong>។</p>
+      <ul class="sub-list">
+        <li>ការកំណត់ Root Cause លើ Manufacturing Process, Location, Systemic Causes (ហេតុអ្វីបានជាប្រព័ន្ធអនុញ្ញាតឱ្យបញ្ហានេះកើតឡើង), និង Detection Escape (ហេតុអ្វីបានជាពិនិត្យមិនឃើញ)។</li>
+        <li>ការដោះស្រាយបញ្ហា Customer Return ឬ Field Failures ដោយវិភាគលើ NTF (No Trouble Found) តាមការកំណត់របស់អតិថិជន។</li>
+      </ul>
+
+      <div class="callout">
+        <p class="flag">10.2.4 · ERROR-PROOFING (POKA-YOKE)</p>
+        <ul class="sub-list" style="margin-top:0;">
+          <li><em>PFMEA Link</em> — ត្រូវស្រាវជ្រាវរក Error-proofing ផ្អែកលើហានិភ័យក្នុង PFMEA។</li>
+          <li><em>Test Masters / Red Samples</em> — ប្រព័ន្ធ (Sensor, Vision System, Mechanical Stop) ត្រូវបានធ្វើតេស្តជាប្រចាំដោយប្រើ Red Sample ឬ Boundary Sample។</li>
+          <li><em>Failure Response</em> — ប្រសិនបើប្រព័ន្ធ Error-proofing Fail ត្រូវតែមាន Reaction Plan ច្បាស់លាស់។</li>
+        </ul>
+      </div>
+
+      <h3 class="sub">10.2.5 & 10.2.6 — Warranty and field failure analysis</h3>
+      <ul class="req">
+        <li><strong>10.2.5 Warranty Systems៖</strong> ប្រសិនបើមានកិច្ចព្រមព្រៀង Warranty ជាមួយអតិថិជន ត្រូវរៀបចំដំណើរការវិភាគបំណែកភាគខូចខាតពីទីផ្សារ (Warranty Part Analysis) រួមទាំង NTF។</li>
+        <li><strong>10.2.6 Customer Complaints & Field Failure Test Analysis៖</strong> ត្រូវវិភាគទំនិញអតិថិជនប្តឹង ឬ Field Failures ហើយផ្ញើលទ្ធផលវិភាគ (Root cause & Corrective Actions) ជូនអតិថិជនតាមកាលកំណត់ (ឧ. ឆ្លើយតប 8D ដើមដំបូងក្នុងរយៈពេល 24–48h)។</li>
+      </ul>
+
+      <h3 class="sub">10.3 — Continual improvement</h3>
+      <p>IATF 16949 តម្រូវឱ្យមានដំណើរការកែលម្អជាប្រចាំលើ Process Variation Reduction (ប្រើប្រាស់ SPC, Cpk/Ppk) និង Waste Reduction (Scrap rate, Rework rate, Downtime)។</p>
+
+      <table class="datatable">
+        <tr><th>ឧបករណ៍គាំទ្រ (Tools)</th><th>គោលបំណងនៃការអនុវត្ត</th></tr>
+        <tr><td class="k">Kaizen / Lean</td><td>ការកាត់បន្ថយលំហូរការងារដែលគ្មានតម្លៃបន្ថែម (Non-value added activities)</td></tr>
+        <tr><td class="k">Six Sigma (DMAIC)</td><td>ការវិភាគទិន្នន័យដើម្បីកាត់បន្ថយ Variation នៃផលិតផល</td></tr>
+        <tr><td class="k">Lessons Learned / Read-Across</td><td>ការយកមេរៀនដែលបានកែលម្អក្នុង Line មួយ ទៅអនុវត្តលើ Line ឬរោងចក្រផ្សេងទៀត</td></tr>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    IATF 16949:2016 · Automotive Quality Management System Reference — Built on ISO 9001:2015
+  </footer>
+</div>
+
+<script>
+  const links = document.querySelectorAll('.toc-list a');
+  const sections = document.querySelectorAll('section.clause');
+  const map = new Map();
+  links.forEach(l => map.set(l.getAttribute('href').slice(1), l));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = map.get(entry.target.id);
+      if(!link) return;
+      if(entry.isIntersecting){
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
